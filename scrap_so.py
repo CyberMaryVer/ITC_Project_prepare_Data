@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import pandas as pd # Data processing, CSV file
 import requests # Getting Webpage content
 from bs4 import BeautifulSoup as bs # Scraping webpages
 
@@ -103,13 +101,6 @@ if __name__ == '__main__':
     test_scrap()
 
 
-
-=======
-
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import requests # Getting Webpage content
-from bs4 import BeautifulSoup as bs # Scraping webpages
-
 def get_answer(q_url):
     """
     The function extracts answers by url of question
@@ -200,14 +191,11 @@ def main():
     URL = 'https://stackoverflow.com/questions'
     TAG = 'web-scraping'
 
-    df0 = get_faq(URL, TAG, 50)
+    df0 = get_faq(URL, TAG, 300)
     df0.to_csv('scrap_so.csv')
     print(df0.head())
 
 if __name__ == '__main__':
-    # main()
-    test_scrap()
+    main()
+    # test_scrap()
 
-
-
->>>>>>> fd3ec23db3ed55d37f7e21e4e6ac514f704e1715
