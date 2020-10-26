@@ -140,8 +140,9 @@ def get_faq(url, tag, n_questions=50):
     :return: pd.DataFrame
     """
     simple_list = [[]]
-    for n in range(int(n_questions/50) + 1):
-        url0 = url + "/tagged/" + tag + "?sort=votes&page={}pagesize={}".format(n + 1,n_questions)
+    for n in range(int(n_questions / 50) + 1):
+        url0 = url + "/tagged/" + tag + "?tab=votes&page={}&pagesize=50".format(n + 1)
+        print(url0)
 
         r = requests.get(url0)
         soup = bs(r.text, "html.parser")
@@ -156,7 +157,8 @@ def get_faq(url, tag, n_questions=50):
         summaries = [i.text.strip() for i in summary_divs]  # summaries list
 
         # Creating a list with all the data
-        for i in range(1,len(questions)-1):
+        for i in range(1, len(questions) - 1):
+            print('Retrieving question #{} on page {}...'.format(i, n + 1))
             try:
                 answer_lst = get_answer(href_tags[i])
                 simple_list.append([questions[i], summaries[i], href_tags[i], answer_lst])
