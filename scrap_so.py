@@ -56,6 +56,7 @@ def get_faq(url, tag, n_questions=50):
 
         # Creating a list with all the data
         for i in range(1,len(questions)-1):
+            print('Retrieving question #{} on page {}...'.format(i, n+1))
             try:
                 answer_lst = get_answer(href_tags[i])
                 simple_list.append([questions[i], summaries[i], href_tags[i], answer_lst])
