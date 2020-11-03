@@ -1,4 +1,3 @@
-
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import requests # Getting Webpage content
 from bs4 import BeautifulSoup as bs # Scraping webpages
