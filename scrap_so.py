@@ -1,49 +1,37 @@
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import requests # Getting Webpage content
-from bs4 import BeautifulSoup as bs # Scraping webpages
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 
-def get_answer(q_url):
+
+def get_answer(url):
+    """ Extracts answers for a stack overflow question
+
+    :param str url: url of the question
+    :return: list of answers
+    :rtype: list
     """
-    The function extracts answers by url of question
+    page = requests.get(url)
+    soup = BeautifulSoup(page.text, 'html.parser')
+    table = soup.findAll('div', attrs={"class": "s-prose js-post-body"})
 
-    :param q_url: string (url of the question)
-    :return: list (list of answers)
-    """
-    # Extracting answer
-    answ_url = q_url
-    answ_page = requests.get(answ_url)
-    answ_soup = bs(answ_page.text, 'html.parser')
-    table = answ_soup.findAll('div', attrs={"class": "s-prose js-post-body"})
-    answers = []
-
-    for par in table:
-        try:
-            s = (par.find('p').text).strip()
-            answers.append(s)
-            # answers = answers + '. ' + (par.find('p').text) # if output as string is needed
-        except:
-            pass
-    return answers
-
+    return [answer.text.strip() for par in table if (answer := par.find('p')) is not None]
 
 
 def get_faq(url, tag, n_questions=50):
-    """
-    The function uses url and tag to find and collect the frequently asked questions
-    and relevant answers from stackoverflow.com. The function returns
-    dataframe with questions, summary, link and list of answers.
+    """ Find and collect the frequently asked questions and relevant answers from stackoverflow.com. The function returns
 
-    :param url: URL = 'https://stackoverflow.com/questions'
-    :param tag: string (!StackOverflow tags only!)
-    :param n_questions: integer
-    :return: pd.DataFrame
+    :param str url: URL = 'https://stackoverflow.com/questions'
+    :param str tag: (!StackOverflow tags only!)
+    :param int n_questions: number of questions
+    :return: dataframe with questions, summary, link and list of answers.
+    :rtype: pd.DataFrame
     """
     simple_list = [[]]
     for n in range(int(n_questions/50) + 1):
         url0 = url + "/tagged/" + tag + "?sort=votes&page={}pagesize={}".format(n + 1,n_questions)
 
         r = requests.get(url0)
-        soup = bs(r.text, "html.parser")
+        soup = BeautifulSoup(r.text, "html.parser")
 
         # Extracting questions and links
         link_hrefs = soup.select("a.question-hyperlink")
