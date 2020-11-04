@@ -1,6 +1,10 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from math import ceil
+import sys
+
+PAGE_SIZE = 50
 
 
 def get_answer(url):
@@ -26,28 +30,31 @@ def get_faq(url, tag, n_questions=50):
     :return: dataframe with questions, summary, link and list of answers.
     :rtype: pd.DataFrame
     """
-    simple_list = [[]]
-    for n in range(int(n_questions/50) + 1):
-        url0 = url + "/tagged/" + tag + "?sort=votes&page={}pagesize={}".format(n + 1,n_questions)
 
-        r = requests.get(url0)
-        soup = BeautifulSoup(r.text, "html.parser")
+    simple_list = [[]]
+
+    for page in range(1, ceil(n_questions/PAGE_SIZE) + 1):
+        page_url = f"{url}/tagged/{tag}?tab=votes&page={page}&pagesize={PAGE_SIZE}"
+
+        page_request = requests.get(page_url)
+        soup = BeautifulSoup(page_request.text, "html.parser")
 
         # Extracting questions and links
-        link_hrefs = soup.select("a.question-hyperlink")
-        questions = [l.text.strip() for l in link_hrefs]  # questions list
-        href_tags = [url[:-10] + l['href'] for l in link_hrefs]  # links list
+        link_href = soup.select("a.question-hyperlink")
+        questions = [question.text.strip() for question in link_href]  # questions list
+        href_tags = [url[:-10] + tag['href'] for tag in link_href]  # links list
 
         # Extracting additional information for question (summary)
         summary_divs = soup.select("div.excerpt")
-        summaries = [i.text.strip() for i in summary_divs]  # summaries list
+        summaries = [summary_div.text.strip() for summary_div in summary_divs]  # summaries list
 
         # Creating a list with all the data
-        for i in range(1,len(questions)-1):
+        for i in range(1, len(questions)-1):
             try:
                 answer_lst = get_answer(href_tags[i])
                 simple_list.append([questions[i], summaries[i], href_tags[i], answer_lst])
-            except:
+            except requests.exceptions.ConnectionError as connection_error:
+                print(connection_error)
                 pass
 
     # Putting all of them together in a dataframe
@@ -55,6 +62,7 @@ def get_faq(url, tag, n_questions=50):
     df = df.head(n_questions + 1)
 
     return df
+
 
 def test_scrap(f1=False, f2=True):
     """
@@ -80,9 +88,6 @@ def main():
     URL = 'https://stackoverflow.com/questions'
     TAG = 'web-scraping'
 
-    df0 = get_faq(URL, TAG, 50)
-    df0.to_csv('scrap_so.csv')
-    print(df0.head())
 
 if __name__ == '__main__':
     # main()
