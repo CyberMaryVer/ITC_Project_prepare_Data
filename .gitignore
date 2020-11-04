@@ -74,3 +74,9 @@ fabric.properties
 
 .idea/
 venv/
+
+# Files tupes
+*.csv
+
+# Pycharm directories
+__pycache__/
