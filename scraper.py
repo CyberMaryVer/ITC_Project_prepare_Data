@@ -4,15 +4,77 @@ from bs4 import BeautifulSoup
 
 
 class StackExchangeScrapper:
+    ID_INDEX = 2
+    FAULT_TOLERANCE = 5
 
     def __init__(self, domain):
         self.domain = domain
+
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False):
+        questions_counter = 0
+        attempts = 0
+
+        if verbose:
+            print(f'Getting the FAQ for {self.domain}', end="")
+            if tag is not None:
+                print(f' for Tag: {tag}\n')
+
+        while questions_counter < limit:
+            faq_url = self.__faq_url(tag, start_page)
+
+            if verbose:
+                print(f'Requesting page {start_page}: ', faq_url, end=' ')
+
+            page = requests.get(faq_url)
+
+            if verbose:
+                print('--> Status: ', page.status_code)
+
+            if page.status_code != requests.codes.ok:
+                if attempts >= self.FAULT_TOLERANCE:
+                    assert Exception(f'There is a problem with URL: {faq_url} STATUS: {page.status_code}')
+                attempts += 1
+                continue
+
+            soup = BeautifulSoup(page.content, 'html.parser')
+
+            question_summaries = soup.find_all('div', class_='question-summary')
+
+            for question_summary in question_summaries:
+                try:
+                    question_url = question_summary.find('a', class_="question-hyperlink")['href']
+                    question_id = question_url.split('/')[self.ID_INDEX]
+
+                    if verbose:
+                        print(f'{questions_counter + 1}. ', end="")
+
+                    question_details = self.get_question_details(question_id, verbose=verbose)
+
+                    if verbose:
+                        print(question_details)
+                        print('-' * 100, end='\n\n')
+
+                except AssertionError as assertion_error:
+                    if verbose:
+                        print('Invalid status code')
+                        print(assertion_error)
+                        print('Moving to the next question')
+                    pass
+                else:
+                    questions_counter += 1
+                    if questions_counter == limit:
+                        break
+
+            start_page += 1
+
+        if verbose:
+            print(f'Scraping finished {questions_counter} questions collected')
 
     def get_question_details(self, question_id, verbose=False):
         question_url = self.__question_url(question_id)
 
         if verbose:
-            print('Requesting: ', question_url, end=' ')
+            print(f'Requesting question {question_id}: ', question_url, end=' ')
 
         page = requests.get(question_url)
 
@@ -61,6 +123,12 @@ class StackExchangeScrapper:
     def __question_url(self, question_id):
         return f'{self.domain}/questions/{question_id}'
 
+    def __faq_url(self, tag=None, page=1, page_size=50):
+        url = f'{self.domain}/questions'
+        if tag is not None:
+            url += f'/tagged/{tag}'
+        return url + f'?page={page}&pagesize={page_size}'
+
     @staticmethod
     def __get_post_data(post_layout_container, is_question=False):
         post_properties = {}
@@ -69,7 +137,8 @@ class StackExchangeScrapper:
         post_properties['vote_count'] = vote_cell_container.find('div', class_='js-vote-count')['data-value']
 
         if is_question:
-            post_properties['bookmark_count'] = vote_cell_container.find('div', class_='js-bookmark-count')['data-value']
+            post_properties['bookmark_count'] = vote_cell_container.find('div', class_='js-bookmark-count')[
+                'data-value']
 
             post_cell_container = post_layout_container.find('div', class_='postcell')
             post_properties['tags'] = [tag.text for tag in post_cell_container.find_all('a', class_='post-tag')]
@@ -91,7 +160,8 @@ class StackExchangeScrapper:
                     post_properties['edited_id'] = post_properties['owner_id']
 
         else:
-            user_info_containers = post_layout_container.find('div', class_='answercell').find_all('div', class_='user-info')
+            user_info_containers = post_layout_container.find('div', class_='answercell').find_all('div',
+                                                                                                   class_='user-info')
 
             answered_container = user_info_containers.pop()  # Because the last one is the user who answered the question
             post_properties['user_time'] = answered_container.find('span', class_='relativetime')['title']

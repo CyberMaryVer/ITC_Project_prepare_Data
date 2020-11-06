@@ -17,7 +17,9 @@ def main():
     # faq.to_csv('scrap_so.csv')
 
     scrapper = StackOverflowScrapper()
-    test = scrapper.get_question_details(5041008, verbose=True)
+    #test = scrapper.get_question_details(5041008, verbose=True)
+
+    scrapper.get_faq('python', start_page=2, verbose=True, limit=5)
 
 
 
