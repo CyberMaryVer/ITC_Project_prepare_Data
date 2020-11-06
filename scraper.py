@@ -1,4 +1,5 @@
 import requests
+from element import Question, Answer
 from bs4 import BeautifulSoup
 
 
@@ -26,49 +27,70 @@ class StackExchangeScrapper:
         answer_count = soup.find(id='answers-header').find('h2')['data-answercount']
 
         post_layout_containers = soup.find_all('div', class_='post-layout')
+        post_layout_question_container = post_layout_containers.pop(0)  # Because the first post is the question
 
-        print(question_url)
-        print('PAGE')
-        print(title)
-        print(asked)
-        print(active)
-        print(viewed)
-        print(len(post_layout_containers))
-        print(answer_count)
+        question_post_properties = self.__get_post_data(post_layout_question_container, is_question=True)
 
-        self.__get_post_data(post_layout_containers[0])
+        question = Question(question_id, title, asked=asked, active=active, viewed=viewed, answer_count=answer_count,
+                            **question_post_properties)
+
+        for post_layout_container in post_layout_question_container:
+            print('answer')
+            print(post_layout_container.trim())
+        #     answer_post_properties = self.__get_post_data(post_layout_container)
+        #     print(answer_post_properties)
+            print('\n\n')
+
+        return 'question'
 
     def __question_url(self, question_id):
         return f'{self.domain}/questions/{question_id}'
 
     @staticmethod
-    def __get_post_data(post_layout_container):
+    def __get_post_data(post_layout_container, is_question=False):
+        post_properties = {}
+
         vote_cell_container = post_layout_container.find('div', class_='votecell')
-        vote_count = vote_cell_container.find('div', class_='js-vote-count')['data-value']
-        bookmark_count = vote_cell_container.find('div', class_='js-bookmark-count')['data-value']
+        post_properties['vote_count'] = vote_cell_container.find('div', class_='js-vote-count')['data-value']
 
-        post_cell_container = post_layout_container.find('div', class_='postcell')
-        tags = [tag.text for tag in post_cell_container.find_all('a', class_='post-tag')]
+        if is_question:
+            post_properties['bookmark_count'] = vote_cell_container.find('div', class_='js-bookmark-count')['data-value']
 
-        owner_tag = post_cell_container.find('div', class_='owner').find('div', class_='user-details')
-        owner_name = owner_tag.a.text
-        owner_id = owner_tag.a['href']
+            post_cell_container = post_layout_container.find('div', class_='postcell')
+            post_properties['tags'] = [tag.text for tag in post_cell_container.find_all('a', class_='post-tag')]
 
-        edited_tag = post_cell_container.find('div', class_='post-signature grid--cell').find('div', class_='user-details')
-        edited_time = post_cell_container.find('span', class_='relativetime')['title']
-        edited_name = edited_tag.a.text
-        edited_id = edited_tag.a['href']
+            owner_container = post_cell_container.find('div', class_='owner').find('div', class_='user-details')
+            post_properties['owner_name'] = owner_container.a.text
+            post_properties['owner_id'] = owner_container.a['href']
 
-        print(vote_count)
-        print(bookmark_count)
-        print(tags)
-        print(owner_name)
-        print(owner_id)
-        print(edited_time)
-        print(edited_name)
-        print(edited_id)
+            edited_container = post_cell_container.find('div', class_='post-signature grid--cell')
+            if edited_container is not None:
+                edited_container = edited_container.find('div', class_='user-details')
+                post_properties['edited_time'] = post_cell_container.find('span', class_='relativetime')['title']
 
-        return 'hola'
+                if edited_container.a is not None:
+                    post_properties['edited_name'] = edited_container.a.text
+                    post_properties['edited_id'] = edited_container.a['href']
+                else:
+                    post_properties['edited_name'] = post_properties['owner_name']
+                    post_properties['edited_id'] = post_properties['owner_id']
+
+        else:
+            user_details_containers = post_layout_container.find('div', class_='answercell').find_all('div', class_='user-info')
+
+            answered_container = user_details_containers.pop()  # Because the last one is the user who answered the question
+            post_properties['user_time'] = answered_container.find('span', class_='relativetime')['title']
+            post_properties['user_name'] = answered_container.find('div', class_='user-details').a.text
+            post_properties['user_id'] = answered_container.find('div', class_='user-details').a['href']
+
+            for user_details_container in user_details_containers:
+                post_properties['edit_time'] = user_details_container.find('span', class_='relativetime')['title']
+
+                if user_details_container.a is not None:
+                    post_properties['edit_id'] = user_details_container.find('div', class_='user-details').a.text
+                    post_properties['edit_name'] = user_details_container.find('div', class_='user-details').a['href']
+
+        return post_properties
 
 
 class StackOverflowScrapper(StackExchangeScrapper):
@@ -76,6 +98,7 @@ class StackOverflowScrapper(StackExchangeScrapper):
 
     def __init__(self):
         super().__init__(domain=self.DOMAIN)
+
     pass
 
 
@@ -84,6 +107,7 @@ class AskUbuntuScrapper(StackExchangeScrapper):
 
     def __init__(self):
         super().__init__(domain=self.DOMAIN)
+
     pass
 
 
@@ -92,4 +116,5 @@ class MathematicsScrapper(StackExchangeScrapper):
 
     def __init__(self):
         super().__init__(domain=self.DOMAIN)
+
     pass
