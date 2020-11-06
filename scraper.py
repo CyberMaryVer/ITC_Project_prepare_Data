@@ -8,9 +8,16 @@ class StackExchangeScrapper:
     def __init__(self, domain):
         self.domain = domain
 
-    def get_question_details(self, question_id):
+    def get_question_details(self, question_id, verbose=False):
         question_url = self.__question_url(question_id)
+
+        if verbose:
+            print('Requesting: ', question_url, end=' ')
+
         page = requests.get(question_url)
+
+        if verbose:
+            print('--> Status: ', page.status_code)
 
         assert page.status_code == requests.codes.ok
 
@@ -34,14 +41,22 @@ class StackExchangeScrapper:
         question = Question(question_id, title, asked=asked, active=active, viewed=viewed, answer_count=answer_count,
                             **question_post_properties)
 
-        for post_layout_container in post_layout_question_container:
-            print('answer')
-            print(post_layout_container.trim())
-        #     answer_post_properties = self.__get_post_data(post_layout_container)
-        #     print(answer_post_properties)
-            print('\n\n')
+        for post_layout_container in post_layout_containers:
+            try:
+                answer_post_properties = self.__get_post_data(post_layout_container)
+                question.add_answer(Answer(**answer_post_properties))
+            except AttributeError as attribute_error:
+                if verbose:
+                    print('Incompatible format')
+                    print(attribute_error)
+                pass
+            except TypeError as type_error:
+                if verbose:
+                    print('Missing Attributes for Answer Object')
+                    print(type_error)
+                pass
 
-        return 'question'
+        return question
 
     def __question_url(self, question_id):
         return f'{self.domain}/questions/{question_id}'
@@ -76,19 +91,23 @@ class StackExchangeScrapper:
                     post_properties['edited_id'] = post_properties['owner_id']
 
         else:
-            user_details_containers = post_layout_container.find('div', class_='answercell').find_all('div', class_='user-info')
+            user_info_containers = post_layout_container.find('div', class_='answercell').find_all('div', class_='user-info')
 
-            answered_container = user_details_containers.pop()  # Because the last one is the user who answered the question
+            answered_container = user_info_containers.pop()  # Because the last one is the user who answered the question
             post_properties['user_time'] = answered_container.find('span', class_='relativetime')['title']
             post_properties['user_name'] = answered_container.find('div', class_='user-details').a.text
             post_properties['user_id'] = answered_container.find('div', class_='user-details').a['href']
 
-            for user_details_container in user_details_containers:
-                post_properties['edit_time'] = user_details_container.find('span', class_='relativetime')['title']
+            for user_info_container in user_info_containers:
+                post_properties['edit_time'] = user_info_container.find('span', class_='relativetime')['title']
 
+                user_details_container = user_info_container.find('div', class_='user-details')
                 if user_details_container.a is not None:
-                    post_properties['edit_id'] = user_details_container.find('div', class_='user-details').a.text
-                    post_properties['edit_name'] = user_details_container.find('div', class_='user-details').a['href']
+                    post_properties['edit_name'] = user_details_container.a.text
+                    post_properties['edit_id'] = user_details_container.a['href']
+                else:
+                    post_properties['edit_name'] = post_properties['user_name']
+                    post_properties['edit_id'] = post_properties['user_id']
 
         return post_properties
 
