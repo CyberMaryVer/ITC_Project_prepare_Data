@@ -3,8 +3,8 @@ from element import Question, Answer
 from bs4 import BeautifulSoup
 
 
-class StackExchangeScrapper:
-    """ The StackExchangeScrapper class provides methods
+class StackExchangeScraper:
+    """ The StackExchangeScraper class provides methods
     for scraping questions from the Stack Exchange network.
 
     :param str domain: A domain belonging to the Stack Exchange network
@@ -226,8 +226,8 @@ class StackExchangeScrapper:
         return post_properties
 
 
-class StackOverflowScrapper(StackExchangeScrapper):
-    """ A Stack Overflow wrapper for the StackExchangeScrapper class """
+class StackOverflowScraper(StackExchangeScraper):
+    """ A Stack Overflow wrapper for the StackExchangeScraper class """
     DOMAIN = 'https://stackoverflow.com'
 
     def __init__(self):
@@ -235,8 +235,8 @@ class StackOverflowScrapper(StackExchangeScrapper):
         super().__init__(domain=self.DOMAIN)
 
 
-class AskUbuntuScrapper(StackExchangeScrapper):
-    """ A Ask Ubuntu wrapper for the StackExchangeScrapper class """
+class AskUbuntuScraper(StackExchangeScraper):
+    """ A Ask Ubuntu wrapper for the StackExchangeScraper class """
     DOMAIN = 'https://askubuntu.com'
 
     def __init__(self):
@@ -244,8 +244,8 @@ class AskUbuntuScrapper(StackExchangeScrapper):
         super().__init__(domain=self.DOMAIN)
 
 
-class MathematicsScrapper(StackExchangeScrapper):
-    """ A Mathematics wrapper for the StackExchangeScrapper class """
+class MathematicsScraper(StackExchangeScraper):
+    """ A Mathematics wrapper for the StackExchangeScraper class """
     DOMAIN = 'https://math.stackexchange.com'
 
     def __init__(self):
