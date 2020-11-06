@@ -1,4 +1,10 @@
 class Question:
+    """ The question class contains the information
+    of a Stack Exchange question.
+
+    :param str question_id: Question id
+    :param str title: The title of the question
+    """
     SRT_TEMPLATE = 'Question: {id}\n'\
         'title: {title}\n'\
         'asked: {asked}\n' \
@@ -18,6 +24,12 @@ class Question:
         'Answers: {answer_count}'
 
     def __init__(self, question_id, title, **kwargs):
+        """ Constructor method
+
+        :param str question_id: Question id
+        :param str title: The title of the question
+        :param dict **kwargs: All other optional parameters
+        """
         self.id = question_id
         self.title = title
         self.asked = kwargs.get('asked')
@@ -35,21 +47,43 @@ class Question:
         self.answers = []
 
     def add_answer(self, answer):
+        """ Add an Answer Object to the answer list
+
+        :param Answer answer: An answer object
+        """
         self.answers.append(answer)
 
     def __str__(self):
+        """ Convert the Question object converted to a string
+
+        :return: The Question object converted to a string
+        :rtype: str
+        """
         if len(self.answers) > 0:
             return (self.SRT_TEMPLATE + '\n{formatted_answers}')\
                 .format(**self.__dict__, formatted_answers='\n'.join(map(lambda answer: str(answer), self.answers)))
         return self.SRT_TEMPLATE.format(**self.__dict__)
 
     def __repr__(self):
+        """ Compute the official string representation of an Question object
+
+        :return: The Question object converted to a string
+        :rtype: str
+        """
         return self.__str__()
 
 
 class Answer:
 
     def __init__(self, user_time, user_id, user_name, vote_count, **kwargs):
+        """ Constructor method
+
+        :param str user_time: The publication date of the answer
+        :param str user_id: The id of the user who answered
+        :param str user_name: The name of the user who answered
+        :param str vote_count: The answer vote score
+        :param dict **kwargs: All other optional parameters
+        """
         self.user_time = user_time
         self.user_id = user_id
         self.user_name = user_name
@@ -59,7 +93,17 @@ class Answer:
         self.edit_name = kwargs.get('edit_name')
 
     def __str__(self):
+        """ Convert the Answer object converted to a string
+
+        :return: The Answer object converted to a string
+        :rtype: str
+        """
         return str(self.__dict__)
 
     def __repr__(self):
+        """ Compute the official string representation of an Answer object
+
+        :return: The Answer object converted to a string
+        :rtype: str
+        """
         return self.__str__()
