@@ -18,7 +18,7 @@ def get_answer(url):
     soup = BeautifulSoup(page.text, 'html.parser')
     table = soup.findAll('div', attrs={"class": "s-prose js-post-body"})
 
-    return [answer.text.strip() for par in table if (answer := par.find('p')) is not None]
+    return [answer.text.strip() for par in table if (answer == par.find('p')) is not None]
 
 
 def get_faq(url, tag, n_questions=50):

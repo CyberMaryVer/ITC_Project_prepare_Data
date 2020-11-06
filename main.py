@@ -16,10 +16,10 @@ def main():
     #
     # faq.to_csv('scrap_so.csv')
 
-    scrapper = MathematicsScraper()
+    scrapper = StackOverflowScraper()
     #test = scrapper.get_question_details(5041008, verbose=True)
 
-    scrapper.get_faq('matrix', start_page=2, verbose=True, limit=5)
+    scrapper.get_faq('matrix', start_page=2, verbose=True, limit=2)
 
 
 
