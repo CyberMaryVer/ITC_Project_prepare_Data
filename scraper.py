@@ -4,13 +4,29 @@ from bs4 import BeautifulSoup
 
 
 class StackExchangeScrapper:
+    """ The StackExchangeScrapper class provides methods
+    for scraping questions from the Stack Exchange network.
+
+    :param str domain: A domain belonging to the Stack Exchange network
+    """
     ID_INDEX = 2
     FAULT_TOLERANCE = 5
 
     def __init__(self, domain):
+        """ Constructor method
+
+        :param str domain: A domain belonging to the Stack Exchange network
+        """
         self.domain = domain
 
     def get_faq(self, tag=None, start_page=1, limit=100, verbose=False):
+        """ Find and collect the frequently asked questions and relevant answers
+
+        :param str tag: (Optional) A tag specify the category of the search
+        :param int start_page: The page where the search is started
+        :param int limit: The number of questions to retrieve
+        :param bool verbose: Specifies whether the program execution should be printed in the terminal
+        """
         questions_counter = 0
         attempts = 0
 
@@ -71,6 +87,13 @@ class StackExchangeScrapper:
             print(f'Scraping finished {questions_counter} questions collected')
 
     def get_question_details(self, question_id, verbose=False):
+        """ Retrieve the detailed information of a specific question and and its answers
+
+        :param int|str question_id: The id of a question
+        :param bool verbose: Specifies whether the program execution should be printed in the terminal
+        :return: A Question object with the info
+        :rtype: Question
+        """
         question_url = self.__question_url(question_id)
 
         if verbose:
@@ -121,9 +144,23 @@ class StackExchangeScrapper:
         return question
 
     def __question_url(self, question_id):
+        """ Generate the url for a specific question
+
+        :param int|str question_id: The id of a question
+        :return: The url for a specific question
+        :rtype: str
+        """
         return f'{self.domain}/questions/{question_id}'
 
     def __faq_url(self, tag=None, page=1, page_size=50):
+        """ Generate the url for a question list page (faq)
+
+        :param str tag: (Optional) A tag specify the category of the search
+        :param int page: The specific page for the pagination system
+        :param int page_size: The number of questions to return
+        :return: The url for a specific question list (fqq)
+        :rtype: str
+        """
         url = f'{self.domain}/questions'
         if tag is not None:
             url += f'/tagged/{tag}'
@@ -131,6 +168,13 @@ class StackExchangeScrapper:
 
     @staticmethod
     def __get_post_data(post_layout_container, is_question=False):
+        """ Extract the data from a post container
+
+        :param bs4.element.Tag post_layout_container: The post container
+        :param bool is_question: Determine if the post should be treated as a question or as an answer
+        :return: A dict with the info of the post
+        :rtype: dict
+        """
         post_properties = {}
 
         vote_cell_container = post_layout_container.find('div', class_='votecell')
@@ -183,27 +227,27 @@ class StackExchangeScrapper:
 
 
 class StackOverflowScrapper(StackExchangeScrapper):
+    """ A Stack Overflow wrapper for the StackExchangeScrapper class """
     DOMAIN = 'https://stackoverflow.com'
 
     def __init__(self):
+        """ Constructor method """
         super().__init__(domain=self.DOMAIN)
-
-    pass
 
 
 class AskUbuntuScrapper(StackExchangeScrapper):
+    """ A Ask Ubuntu wrapper for the StackExchangeScrapper class """
     DOMAIN = 'https://askubuntu.com'
 
     def __init__(self):
+        """ Constructor method """
         super().__init__(domain=self.DOMAIN)
-
-    pass
 
 
 class MathematicsScrapper(StackExchangeScrapper):
+    """ A Mathematics wrapper for the StackExchangeScrapper class """
     DOMAIN = 'https://math.stackexchange.com'
 
     def __init__(self):
+        """ Constructor method """
         super().__init__(domain=self.DOMAIN)
-
-    pass
