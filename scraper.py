@@ -20,7 +20,7 @@ class StackExchangeScraper:
         """
         self.domain = domain
 
-    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False):
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, dir='../Downloads/'):
         """ Find and collect the frequently asked questions and relevant answers
 
         :param str tag: (Optional) A tag specify the category of the search
@@ -103,7 +103,7 @@ class StackExchangeScraper:
                                'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
                                'owner_name', 'edited_time','edited_id', 'edited_name',
                                'answer_count', 'answers'])
-            df.to_csv('df.csv')
+            df.to_csv(dir + 'df.csv')
 
     def get_question_details(self, question_id, verbose=False):
         """ Retrieve the detailed information of a specific question and and its answers
