@@ -1,4 +1,3 @@
-from scrap_so import *
 from scraper import *
 
 
@@ -20,8 +19,6 @@ def main():
     #test = scrapper.get_question_details(5041008, verbose=True)
 
     scrapper.get_faq('matrix', start_page=2, verbose=True, limit=5)
-
-
 
 if __name__ == '__main__':
     main()
