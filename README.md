@@ -1,9 +1,14 @@
 # Stack Exchange Scraper ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg) ![version](https://img.shields.io/badge/version-1.0.0-green)
 
-An easy and quick **python script** to extract data from question of the **stack exchange** network sites. Right now support question from **Stack Overflow**, **Ask Ubuntu** and **Mathematics Stack Exchange**.
+An easy and quick **python script** to extract data from question of the 
+[Stack Exchange](https://stackexchange.com/) network sites. Right now support question from 
+[Stack Overflow](https://stackoverflow.com/), [Ask Ubuntu](https://askubuntu.com/) 
+and [Mathematics Stack Exchange](https://math.stackexchange.com/).
 
 ## Motivation
-This project born as part of the **Data Mining** project for **ITC Class of Fall 2020**.
+This project born as part of the **Data Mining** project for **ITC Class of Fall 2020**. The [Stack Exchange](https://stackexchange.com/) 
+family sites are a meeting point between people who have questions on a related topic and other users and experts who freely answer this questions. 
+The voting system allows us to follow the most popular questions and answers and gives us an idea of the trending topics in a specialized communities.
 
 ## Installation
 
