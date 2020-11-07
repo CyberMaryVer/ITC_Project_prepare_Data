@@ -1,6 +1,7 @@
 import requests
 from element import Question, Answer
 from bs4 import BeautifulSoup
+import pandas as pd
 
 
 class StackExchangeScraper:
@@ -19,7 +20,7 @@ class StackExchangeScraper:
         """
         self.domain = domain
 
-    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False):
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, dir='../Downloads/'):
         """ Find and collect the frequently asked questions and relevant answers
 
         :param str tag: (Optional) A tag specify the category of the search
@@ -29,6 +30,9 @@ class StackExchangeScraper:
         """
         questions_counter = 0
         attempts = 0
+
+        # Creating an empty list for data
+        to_csv = []
 
         if verbose:
             print(f'Getting the FAQ for {self.domain}', end="")
@@ -66,6 +70,14 @@ class StackExchangeScraper:
 
                     question_details = self.get_question_details(question_id, verbose=verbose)
 
+                    # Creating a list with all the data
+                    to_csv.append([question_details.title, question_details.asked, question_details.active,
+                                   question_details.viewed, question_details.vote_count,
+                                   question_details.bookmark_count, question_details.tags, question_details.owner_id,
+                                   question_details.owner_name, question_details.edited_time,
+                                   question_details.edited_id, question_details.edited_name,
+                                   question_details.answer_count, question_details.answers])
+
                     if verbose:
                         print(question_details)
                         print('-' * 100, end='\n\n')
@@ -85,6 +97,13 @@ class StackExchangeScraper:
 
         if verbose:
             print(f'Scraping finished {questions_counter} questions collected')
+
+            # saving in .csv
+            df = pd.DataFrame(to_csv, columns=['question title', 'asked', 'active',
+                               'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
+                               'owner_name', 'edited_time','edited_id', 'edited_name',
+                               'answer_count', 'answers'])
+            df.to_csv(dir + 'df.csv')
 
     def get_question_details(self, question_id, verbose=False):
         """ Retrieve the detailed information of a specific question and and its answers
@@ -164,7 +183,7 @@ class StackExchangeScraper:
         url = f'{self.domain}/questions'
         if tag is not None:
             url += f'/tagged/{tag}'
-        return url + f'?page={page}&pagesize={page_size}'
+        return url + f'?tab=votes&page={page}&pagesize={page_size}'
 
     @staticmethod
     def __get_post_data(post_layout_container, is_question=False):
