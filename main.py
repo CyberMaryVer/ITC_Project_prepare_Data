@@ -1,4 +1,3 @@
-from scrap_so import *
 from scraper import *
 import argparse
 import os
