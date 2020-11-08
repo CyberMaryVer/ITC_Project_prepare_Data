@@ -1,3 +1,4 @@
+import os
 from scraper import *
 
 
@@ -8,6 +9,9 @@ def test():
     Show the execution in the CLI and save the results in the directory ./test
     """
     try:
+        if not os.path.isdir('test'):
+            os.makedirs('test')
+
         StackOverflowScraper().get_faq(tag='python', start_page=1, verbose=True, limit=1000, _dir='./test')
     except KeyboardInterrupt:
         print('Program finish by the user')
