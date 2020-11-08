@@ -1,8 +1,29 @@
 from scraper import *
+import _thread
+import sys
 import argparse
+import time
 import os
 
 OBJECT_MAP = {'SO': StackOverflowScraper(), 'MATH': MathematicsScraper(), 'UBUNTU': AskUbuntuScraper()}
+IS_RUNNING = True
+
+
+def print_message():
+    """ Print the message in Scraping... during a non-verbose run to give the user a visual key """
+    global IS_RUNNING
+
+    point_counter = 1
+    while IS_RUNNING:
+        if point_counter < 4:
+            sys.stdout.write('\rScraping' + '.' * point_counter)
+            point_counter += 1
+        else:
+            point_counter = 1
+            sys.stdout.write("\r           ")
+            sys.stdout.write("\rScraping")
+        sys.stdout.flush()
+        time.sleep(1)
 
 
 def main():
@@ -25,8 +46,16 @@ def main():
         os.makedirs(directory)
 
     scrapper = OBJECT_MAP[args.where]
-    scrapper.get_faq(tag=args.tag, start_page=1, verbose=True, limit=args.limit, dir=directory)
 
+    if not args.verbose:
+        _thread.start_new_thread(print_message, ())
+
+    scrapper.get_faq(tag=args.tag, start_page=1, verbose=args.verbose, limit=args.limit, dir=directory)
+
+    if not args.verbose:
+        global IS_RUNNING
+        IS_RUNNING = False
+        print(f'\rFinished check the {args.directory} directory')
 
 if __name__ == '__main__':
     main()
