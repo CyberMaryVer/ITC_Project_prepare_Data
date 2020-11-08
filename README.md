@@ -23,28 +23,60 @@ source your_venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Usage
-You can set options using the main notation standards:
+## Options
 
-**-h --help** show help
+The program runs as a **command-line script**. Below you can see the list of available options. 
+You can always go back to them using the `--help` flag.
 
-**-s --search** search tag
-
-**-w --where** website to parse 
-* SO: stackoverflow (by default)
-* MATH: math.stackexchange
-* UBUNTU: ask.ubuntu
-
-**-d --directory** save directory
-
-**-l --limit** the number of questions to retrieve
-
-**-v --verbose** verbose execution
 ```bash
-python main.py -s python
-python main.py -w MATH -s calculus
-python main.py -w UBUNTU -s cloud -d c:/temp
-python main.py -s sql -d ./temp -l 500 -v
+python stack-scraper.py --help
+
+usage: stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-v]
+
+Performs a scraping on a web page of the Stack Exchange network saving the information of the questions in a csv file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t TAG, --tag TAG     the tag to specify the topic of the search. If it is not specified, it will search within the general FAQ
+  -w {SO,MATH,UBUNTU}, --where {SO,MATH,UBUNTU}
+                        the target website. -SO: https://stackoverflow.com -MATH: https://math.stackexchange.com -UBUNTU: https://askubuntu.com
+  -d DIRECTORY, --directory DIRECTORY
+                        the directory path where the results will be saved. If it does not exist, it will be created
+  -b BEGIN, --begin BEGIN
+                        the page number to start the search
+  -l LIMIT, --limit LIMIT
+                        the maximum number of questions to retrieve
+  -v, --verbose         determines if the program execution is displayed by CLI
+```
+
+Aqui estan las opciones en mayor detalle:
+
+- `-h --help` show help.
+- `-t --tag` search tag. specify the topic of the search. If it is not specified, it will search within the general **FAQ**.
+- `-w --where` website to parse 
+    - **SO**: [Stack Exchange](https://stackexchange.com/) (by default)
+    - **MATH**: [Mathematics Stack Exchange](https://math.stackexchange.com/).
+    - **UBUNTU**: [Ask Ubuntu](https://askubuntu.com/) 
+- `-d --directory` save directory 
+- `-b --begin` the page number to start the search
+- `-l --limit` the number of questions to retrieve
+- `-v --verbose` if the program execution is displayed by CLI
+
+## Usage
+
+The `stack-scraper.py` command extract question and answers from the [FAQ](https://en.wikipedia.org/wiki/FAQ) list of one  the specified site. The usage is the following.
+
+```bash
+stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-v]
+```
+
+Some example executions:
+
+```bash
+python stack-scraper.py -t python
+python stack-scraper.py -w MATH -t calculus
+python stack-scraper.py -w UBUNTU -t cloud -d ~/temp
+python stack-scraper.py -t sql -d ./temp -l 5000 -v
 ```
 ## Contributing
 Pull requests are welcome (especially from tutors). For major changes, please open an issue first to discuss what you would like to change.
