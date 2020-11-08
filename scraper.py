@@ -27,6 +27,7 @@ class StackExchangeScraper:
         :param int start_page: The page where the search is started
         :param int limit: The number of questions to retrieve
         :param bool verbose: Specifies whether the program execution should be printed in the terminal
+        :param str dir: Specifies the file path
         """
         questions_counter = 0
         attempts = 0
