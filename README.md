@@ -24,7 +24,28 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+You can set options using the main notation standards:
 
+**-h --help** show help
+
+**-s --search** search tag
+
+**-w --where** website to parse 
+* SO: stackoverflow (by default)
+* MATH: math.stackexchange
+* UBUNTU: ask.ubuntu
+
+**-d --directory** save directory
+
+**-l --limit** the number of questions to retrieve
+
+**-v --verbose** verbose execution
+```bash
+python main.py -s python
+python main.py -w MATH -s calculus
+python main.py -w UBUNTU -s cloud -d c:/temp
+python main.py -s sql -d ./temp -l 500 -v
+```
 ## Contributing
 Pull requests are welcome (especially from tutors). For major changes, please open an issue first to discuss what you would like to change.
 

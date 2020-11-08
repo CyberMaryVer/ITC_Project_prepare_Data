@@ -2,6 +2,7 @@ import requests
 from element import Question, Answer
 from bs4 import BeautifulSoup
 import pandas as pd
+import datetime
 
 
 class StackExchangeScraper:
@@ -36,9 +37,10 @@ class StackExchangeScraper:
         to_csv = []
 
         if verbose:
-            print(f'Getting the FAQ for {self.domain}', end="\n")
+            print(f'Getting the FAQ for {self.domain}', end="")
             if tag is not None:
-                print(f' for Tag: {tag}\n')
+                print(f' for Tag: {tag}')
+            print('\n')
 
         while questions_counter < limit:
             faq_url = self.__faq_url(tag, start_page)
@@ -99,12 +101,12 @@ class StackExchangeScraper:
         if verbose:
             print(f'Scraping finished {questions_counter} questions collected')
 
-            # saving in .csv
+        # saving in .csv
         df = pd.DataFrame(to_csv, columns=['question title', 'asked', 'active',
                            'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
                            'owner_name', 'edited_time','edited_id', 'edited_name',
                            'answer_count', 'answers'])
-        df.to_csv(_dir + '/df.csv')
+        df.to_csv(_dir + f'/{self.__class__.__name__.lower()}_{datetime.datetime.now().strftime("%Y%m%d-%H%M%S")}.csv')
 
     def get_question_details(self, question_id, verbose=False):
         """ Retrieve the detailed information of a specific question and and its answers
