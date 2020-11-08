@@ -20,13 +20,14 @@ class StackExchangeScraper:
         """
         self.domain = domain
 
-    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, dir='../Downloads/'):
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, dir='results'):
         """ Find and collect the frequently asked questions and relevant answers
 
         :param str tag: (Optional) A tag specify the category of the search
         :param int start_page: The page where the search is started
         :param int limit: The number of questions to retrieve
         :param bool verbose: Specifies whether the program execution should be printed in the terminal
+        :param str dir: The directory path where the results will be saved
         """
         questions_counter = 0
         attempts = 0
@@ -35,7 +36,7 @@ class StackExchangeScraper:
         to_csv = []
 
         if verbose:
-            print(f'Getting the FAQ for {self.domain}', end="")
+            print(f'Getting the FAQ for {self.domain}', end="\n")
             if tag is not None:
                 print(f' for Tag: {tag}\n')
 
@@ -206,9 +207,13 @@ class StackExchangeScraper:
             post_cell_container = post_layout_container.find('div', class_='postcell')
             post_properties['tags'] = [tag.text for tag in post_cell_container.find_all('a', class_='post-tag')]
 
-            owner_container = post_cell_container.find('div', class_='owner').find('div', class_='user-details')
-            post_properties['owner_name'] = owner_container.a.text
-            post_properties['owner_id'] = owner_container.a['href']
+            owner_container = post_cell_container.find('div', class_='owner')
+            if owner_container is not None:
+                post_properties['owner_name'] = owner_container.find('div', class_='user-details').a.text
+                post_properties['owner_id'] = owner_container.find('div', class_='user-details').a['href']
+            else:
+                post_properties['owner_name'] = None
+                post_properties['owner_id'] = None
 
             edited_container = post_cell_container.find('div', class_='post-signature grid--cell')
             if edited_container is not None:
@@ -227,9 +232,18 @@ class StackExchangeScraper:
                                                                                                    class_='user-info')
 
             answered_container = user_info_containers.pop()  # Because the last one is the user who answered the question
-            post_properties['user_time'] = answered_container.find('span', class_='relativetime')['title']
-            post_properties['user_name'] = answered_container.find('div', class_='user-details').a.text
-            post_properties['user_id'] = answered_container.find('div', class_='user-details').a['href']
+
+            relative_time_tag = answered_container.find('span', class_='relativetime')
+            post_properties['user_time'] = relative_time_tag['title'] if relative_time_tag is not None else None
+
+            user_details_tag = post_properties['user_name'] = answered_container.find('div', class_='user-details')
+
+            if user_details_tag is not None and user_details_tag.a is not None:
+                post_properties['user_name'] = user_details_tag.a.text
+                post_properties['user_id'] = user_details_tag.a['href']
+            else:
+                post_properties['user_name'] = None
+                post_properties['user_id'] = None
 
             for user_info_container in user_info_containers:
                 post_properties['edit_time'] = user_info_container.find('span', class_='relativetime')['title']

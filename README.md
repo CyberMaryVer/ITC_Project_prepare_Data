@@ -7,8 +7,9 @@ and [Mathematics Stack Exchange](https://math.stackexchange.com/).
 
 ## Motivation
 This project born as part of the **Data Mining** project for **ITC Class of Fall 2020**. The [Stack Exchange](https://stackexchange.com/) 
-family sites are a meeting point between people who have questions on a related topic and other users and experts who freely answer this questions. 
+family sites are a meeting point between people who have questions on a related topic and other users and experts who freely answer their questions. 
 The voting system allows us to follow the most popular questions and answers and gives us an idea of the trending topics in a specialized communities.
+In summary it's a rich source of information that is regularly updated, ideal for **scraping**.
 
 ## Installation
 
