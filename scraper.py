@@ -210,7 +210,7 @@ class StackExchangeScraper:
             post_properties['tags'] = [tag.text for tag in post_cell_container.find_all('a', class_='post-tag')]
 
             owner_container = post_cell_container.find('div', class_='owner')
-            if owner_container is not None:
+            if owner_container is not None and owner_container.find('div', class_='user-details') is not None and owner_container.find('div', class_='user-details').a is not None:
                 post_properties['owner_name'] = owner_container.find('div', class_='user-details').a.text
                 post_properties['owner_id'] = owner_container.find('div', class_='user-details').a['href']
             else:

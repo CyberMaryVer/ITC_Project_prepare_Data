@@ -22,6 +22,22 @@ python -m venv your_venv
 source your_venv/bin/activate
 pip install -r requirements.txt
 ```
+## Usage
+
+The `stack-scraper.py` command extract question and answers from the [FAQ](https://en.wikipedia.org/wiki/FAQ) list of one  the specified site. The usage is the following.
+
+```bash
+stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-v]
+```
+
+Some example executions:
+
+```bash
+python stack-scraper.py -t python
+python stack-scraper.py -w MATH -t calculus
+python stack-scraper.py -w UBUNTU -t cloud -d ~/temp
+python stack-scraper.py -t sql -d ./temp -l 5000 -v
+```
 
 ## Options
 
@@ -49,12 +65,12 @@ optional arguments:
   -v, --verbose         determines if the program execution is displayed by CLI
 ```
 
-Aqui estan las opciones en mayor detalle:
+Here are the options in more detail:
 
 - `-h --help` show help.
 - `-t --tag` search tag. specify the topic of the search. If it is not specified, it will search within the general **FAQ**.
 - `-w --where` website to parse 
-    - **SO**: [Stack Exchange](https://stackexchange.com/) (by default)
+    - **SO**: [Stack Overflow](https://stackoverflow.com/) (by default)
     - **MATH**: [Mathematics Stack Exchange](https://math.stackexchange.com/).
     - **UBUNTU**: [Ask Ubuntu](https://askubuntu.com/) 
 - `-d --directory` save directory 
@@ -62,22 +78,26 @@ Aqui estan las opciones en mayor detalle:
 - `-l --limit` the number of questions to retrieve
 - `-v --verbose` if the program execution is displayed by CLI
 
-## Usage
 
-The `stack-scraper.py` command extract question and answers from the [FAQ](https://en.wikipedia.org/wiki/FAQ) list of one  the specified site. The usage is the following.
-
-```bash
-stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-v]
-```
-
-Some example executions:
+## Test it
+If you just want to test the execution of the program you can run the `test.py` script. 
+It will recover the top 1000 favorite questions in the [Stack Overflow](https://stackoverflow.com/) under the `python` tag, 
+shows the execution in the CLI and save the results in a .csv file on the the `./test` directory.
 
 ```bash
-python stack-scraper.py -t python
-python stack-scraper.py -w MATH -t calculus
-python stack-scraper.py -w UBUNTU -t cloud -d ~/temp
-python stack-scraper.py -t sql -d ./temp -l 5000 -v
+python test.py
 ```
+## Screenshots
+
+Example of a verbose execution:
+
+![Alt Text](img/verbose-execution.gif)
+
+\
+Example of a non verbose execution:
+
+![Alt Text](img/non-verbose-execution.gif)
+
 ## Contributing
 Pull requests are welcome (especially from tutors). For major changes, please open an issue first to discuss what you would like to change.
 
