@@ -20,14 +20,14 @@ class StackExchangeScraper:
         """
         self.domain = domain
 
-    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, dir='results'):
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results'):
         """ Find and collect the frequently asked questions and relevant answers
 
         :param str tag: (Optional) A tag specify the category of the search
         :param int start_page: The page where the search is started
         :param int limit: The number of questions to retrieve
         :param bool verbose: Specifies whether the program execution should be printed in the terminal
-        :param str dir: The directory path where the results will be saved
+        :param str _dir: The directory path where the results will be saved
         """
         questions_counter = 0
         attempts = 0
@@ -100,11 +100,11 @@ class StackExchangeScraper:
             print(f'Scraping finished {questions_counter} questions collected')
 
             # saving in .csv
-            df = pd.DataFrame(to_csv, columns=['question title', 'asked', 'active',
-                               'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
-                               'owner_name', 'edited_time','edited_id', 'edited_name',
-                               'answer_count', 'answers'])
-            df.to_csv(dir + 'df.csv')
+        df = pd.DataFrame(to_csv, columns=['question title', 'asked', 'active',
+                           'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
+                           'owner_name', 'edited_time','edited_id', 'edited_name',
+                           'answer_count', 'answers'])
+        df.to_csv(_dir + '/df.csv')
 
     def get_question_details(self, question_id, verbose=False):
         """ Retrieve the detailed information of a specific question and and its answers

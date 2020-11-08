@@ -50,7 +50,7 @@ def main():
     if not args.verbose:
         _thread.start_new_thread(print_message, ())
 
-    scrapper.get_faq(tag=args.tag, start_page=1, verbose=args.verbose, limit=args.limit, dir=directory)
+    scrapper.get_faq(tag=args.tag, start_page=1, verbose=args.verbose, limit=args.limit, _dir=directory)
 
     if not args.verbose:
         global IS_RUNNING
