@@ -1,4 +1,4 @@
-from scraper import *
+from resources.scraper import *
 import _thread
 import sys
 import argparse

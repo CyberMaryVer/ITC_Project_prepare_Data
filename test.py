@@ -1,5 +1,5 @@
 import os
-from scraper import *
+from resources.scraper import *
 
 
 def test():

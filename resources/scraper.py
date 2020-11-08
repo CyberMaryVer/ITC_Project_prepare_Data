@@ -1,5 +1,5 @@
 import requests
-from element import Question, Answer
+from resources.element import Question, Answer
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
