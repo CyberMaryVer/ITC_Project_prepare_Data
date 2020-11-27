@@ -1,5 +1,6 @@
 import requests
-from resources.element import Question, Answer
+from resources.element import ShallowQuestion, ShallowAnswer
+from db.manager import EntityManager
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
@@ -21,7 +22,7 @@ class StackExchangeScraper:
         """
         self.domain = domain
 
-    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results'):
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results', save_to_db=True):
         """ Find and collect the frequently asked questions and relevant answers
 
         :param str tag: (Optional) A tag specify the category of the search
@@ -29,6 +30,7 @@ class StackExchangeScraper:
         :param int limit: The number of questions to retrieve
         :param bool verbose: Specifies whether the program execution should be printed in the terminal
         :param str _dir: The directory path where the results will be saved
+        :param bool save_to_db: Specify if the element should be saved in the database
         """
         questions_counter = 0
         attempts = 0
@@ -73,6 +75,10 @@ class StackExchangeScraper:
 
                     question_details = self.get_question_details(question_id, verbose=verbose)
 
+                    if save_to_db:
+                        entity_manager = EntityManager(source = self.domain)
+                        entity_manager.save(question_details)
+
                     # Creating a list with all the data
                     to_csv.append([question_details.title, question_details.asked, question_details.active,
                                    question_details.viewed, question_details.vote_count,
@@ -81,9 +87,9 @@ class StackExchangeScraper:
                                    question_details.edited_id, question_details.edited_name,
                                    question_details.answer_count, question_details.answers])
 
-                    if verbose:
-                        print(question_details)
-                        print('-' * 100, end='\n\n')
+                    # if verbose:
+                        # print(question_details)
+                        # print('-' * 100, end='\n\n')
 
                 except AssertionError as assertion_error:
                     if verbose:
@@ -114,7 +120,7 @@ class StackExchangeScraper:
         :param int|str question_id: The id of a question
         :param bool verbose: Specifies whether the program execution should be printed in the terminal
         :return: A Question object with the info
-        :rtype: Question
+        :rtype: ShallowQuestion
         """
         question_url = self.__question_url(question_id)
 
@@ -145,13 +151,13 @@ class StackExchangeScraper:
 
         question_post_properties = self.__get_post_data(post_layout_question_container, is_question=True)
 
-        question = Question(question_id, title, asked=asked, active=active, viewed=viewed, answer_count=answer_count,
-                            **question_post_properties)
+        question = ShallowQuestion(question_id, title, asked=asked, active=active, viewed=viewed, answer_count=answer_count,
+                                   **question_post_properties)
 
         for post_layout_container in post_layout_containers:
             try:
                 answer_post_properties = self.__get_post_data(post_layout_container)
-                question.add_answer(Answer(**answer_post_properties))
+                question.add_answer(ShallowAnswer(**answer_post_properties))
             except AttributeError as attribute_error:
                 if verbose:
                     print('Incompatible format')

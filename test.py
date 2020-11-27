@@ -12,7 +12,7 @@ def test():
         if not os.path.isdir('test'):
             os.makedirs('test')
 
-        StackOverflowScraper().get_faq(tag='python', start_page=1, verbose=True, limit=1000, _dir='./test')
+        StackOverflowScraper().get_faq(tag='python', start_page=1, limit=1000, verbose=True, _dir='./test')
     except KeyboardInterrupt:
         print('Program finish by the user')
 

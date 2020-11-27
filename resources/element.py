@@ -1,4 +1,4 @@
-class Question:
+class ShallowQuestion:
     """ The question class contains the information
     of a Stack Exchange question.
 
@@ -49,7 +49,7 @@ class Question:
     def add_answer(self, answer):
         """ Add an Answer Object to the answer list
 
-        :param Answer answer: An answer object
+        :param ShallowAnswer answer: An answer object
         """
         self.answers.append(answer)
 
@@ -73,7 +73,7 @@ class Question:
         return self.__str__()
 
 
-class Answer:
+class ShallowAnswer:
 
     def __init__(self, user_time, user_id, user_name, vote_count, **kwargs):
         """ Constructor method
