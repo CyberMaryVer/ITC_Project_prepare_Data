@@ -7,16 +7,3 @@ from db.entities import Base
 engine = create_engine('mysql+pymysql://root:root@localhost:3306/stack_exchange', echo=False)
 Session = sessionmaker(bind=engine)
 session = Session()
-
-#
-# question = Question()
-# question.title = 'Title 22'
-#
-# question2 = Question()
-# question2.title2 = 'Title 44'
-#
-# session.add(question)
-# session.add(question2)
-# session.commit()
-#
-# session.close()

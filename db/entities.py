@@ -5,8 +5,11 @@ from sqlalchemy.orm import relationship
 Base = declarative_base()
 
 
-# noinspection SpellCheckingInspection
 class Source(Base):
+    """ The Source class map the source table
+    The source is the stackExchange domain that Question and User belongs
+    """
+    # noinspection SpellCheckingInspection
     __tablename__ = 'source'
 
     id = Column('id', Integer, primary_key=True)
@@ -16,8 +19,11 @@ class Source(Base):
     users = relationship('User', back_populates='source')
 
 
-# noinspection SpellCheckingInspection
 class User(Base):
+    """ The User class map the user table
+    A user from some stackExchange domain
+    """
+    # noinspection SpellCheckingInspection
     __tablename__ = 'user'
 
     id = Column('id', Integer, primary_key=True)
@@ -41,8 +47,11 @@ question_tag = Table('question_tag', Base.metadata,
                      )
 
 
-# noinspection SpellCheckingInspection
 class Tag(Base):
+    """ The Tag class map the tag table
+    A tag for a question
+    """
+    # noinspection SpellCheckingInspection
     __tablename__ = 'tag'
 
     id = Column('id', Integer, primary_key=True)
@@ -51,8 +60,11 @@ class Tag(Base):
     questions = relationship('Question', secondary=question_tag, back_populates='tags')
 
 
-# noinspection SpellCheckingInspection
 class Question(Base):
+    """ The Question class map the question table
+    A question from stackExchange domain
+    """
+    # noinspection SpellCheckingInspection
     __tablename__ = 'question'
 
     id = Column('id', Integer, primary_key=True)
@@ -83,8 +95,11 @@ class Question(Base):
     answers = relationship('Answer', cascade="all, delete-orphan", back_populates='question')
 
 
-# noinspection SpellCheckingInspection
 class Answer(Base):
+    """ The Answer class map the answer table
+    A answer from stackExchange question
+    """
+    # noinspection SpellCheckingInspection
     __tablename__ = 'answer'
 
     id = Column('id', Integer, primary_key=True)
