@@ -1,4 +1,4 @@
-# Stack Exchange Scraper ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg) ![version](https://img.shields.io/badge/version-1.0.0-green)
+# Stack Exchange Scraper ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg) ![version](https://img.shields.io/badge/version-1.1.0-green)
 
 An easy and quick **python script** to extract data from question of the 
 [Stack Exchange](https://stackexchange.com/) network sites. Right now support question from 
@@ -78,6 +78,49 @@ Here are the options in more detail:
 - `-l --limit` the number of questions to retrieve
 - `-v --verbose` if the program execution is displayed by CLI
 
+## Database
+The following is the ERD diagram of the database.
+
+![Alt Text](img/erd-diagram.gif)
+
+Below you can find a description of the tables and their columns:
+- **source**: The source is the stackExchange domain that Question and User belongs
+    - `id`: PRIMARY KEY, INT auto incremental
+    - `name`: VARCHAR, Domain from stackExchange
+- **user**: A user from some stackExchange domain
+    - `id`: INT, auto incremental
+    - `source_id`: FOREIGN KEY, INT, id of the source (stackExchange domain)
+    - `stack_exchange_id`: INT, id of the user in source
+    - `username`: VARCHAR, username of the user in source
+    - `name`: VARCHAR, name of the user in source
+- **tag**: A tag for a question
+    - `id`: PRIMARY KEY, INT auto incremental
+    - `name`: VARCHAR, name of the tag
+- **question**: A question from stackExchange domain
+    - `id`: INT, auto incremental
+    - `source_id`: FOREIGN KEY, INT, id of the source (stackExchange domain)
+    - `stack_exchange_id`: INT, id of the user in source
+    - `title`: VARCHAR, title of the question
+    - `asked`: DATETIME, when the question was asked
+    - `active`: DATETIME, since when the question are active
+    - `viewed`: INT, number of visits
+    - `answer_count`: INT, number of responses
+    - `owner_id`: FOREIGN KEY, INT, id of the user who asked the question
+    - `vote_count`: INT, number of votes (sum of negative and positive votes)
+    - `bookmark_count`: INT, number of times in which the question has been marked
+    - `edited_time`: DATETIME, the last time the question was edited
+    - `editor_id`: FOREIGN KEY, INT, id of the user who edited the question
+- **answer**: A answer from stackExchange question
+    - `id`: INT, auto incremental
+    - `question_id`: FOREIGN KEY, INT, id of the question to which the answer belongs
+    - `answer_time`: DATETIME, when the answer was posted
+    - `user_id`: FOREIGN KEY, INT, id of the user who post the answer
+    - `vote_count`: INT, number of votes (sum of negative and positive votes)
+    - `edited_time`: DATETIME, the last time the answer was edited
+    - `editor_id`: FOREIGN KEY, INT, id of the user who edited the answer
+- **question_tag**: Intermediate table to support the many-to-many relationship between tag and user
+    - `question_id`: COMPOSITE PRIMARY KEY, FOREIGN KEY, INT, id of the question
+    - `tag_id`: COMPOSITE PRIMARY KEY, FOREIGN KEY, INT, id of the tag
 
 ## Test it
 If you just want to test the execution of the program you can run the `test.py` script. 
