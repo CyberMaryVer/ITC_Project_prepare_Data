@@ -1,11 +1,20 @@
 import re
-from resources.element import ShallowQuestion, ShallowAnswer
+from resources.element import ShallowQuestion
 from db.connection import session
 from db.entities import *
 from datetime import datetime
 
 
 def str_to_time(date, fmt='%Y-%m-%d %H:%M:%SZ', default=None):
+    """ Convert a string to datetime.
+    If it cannot be created, it returns the default value
+
+    :param srt date: The string of a date
+    :param str fmt: The format of the date param
+    :param str default: A default value in case the date creation fail.
+    :return: A datetime object created from the date
+    :rtype: datetime or None
+    """
     try:
         return datetime.strptime(date, fmt)
     except (ValueError, TypeError):
@@ -13,6 +22,12 @@ def str_to_time(date, fmt='%Y-%m-%d %H:%M:%SZ', default=None):
 
 
 def extract_id(route):
+    """ Extract the id from a user's path
+
+    :param srt route: The string of the path of the user page
+    :return: The id of the user
+    :rtype: int or None
+    """
     try:
         return int(route.split('/')[-2])
     except (AttributeError, IndexError, ValueError):
@@ -20,6 +35,12 @@ def extract_id(route):
 
 
 def extract_username(route):
+    """ Extract the username from a user's path
+
+    :param srt route: The string of the path of the user page
+    :return: The id of the user
+    :rtype: str or None
+    """
     try:
         return route.split('/')[-1]
     except (AttributeError, IndexError):
@@ -28,10 +49,16 @@ def extract_username(route):
 
 class EntityManager:
     def __init__(self, source):
+        """ Constructor method
+
+        :param str source: A domain belonging to the Stack Exchange network
+        """
         self.source = source
 
     def save(self, shallow_question):
-        """
+        """ Save (create or update) a question in the database.
+        Create records (Source, User, Tag, Answer) only if they do not already exist in the database.
+
         :param ShallowQuestion shallow_question:
         """
         users_to_create = {}
