@@ -22,12 +22,18 @@ python -m venv your_venv
 source your_venv/bin/activate
 pip install -r requirements.txt
 ```
+
+To create the database you can run the following script
+
+```bash
+python3 ./db/enviorment.py
+```
 ## Usage
 
 The `stack-scraper.py` command extract question and answers from the [FAQ](https://en.wikipedia.org/wiki/FAQ) list of one  the specified site. The usage is the following.
 
 ```bash
-stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-v]
+stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-f] [-s] [-v]
 ```
 
 Some example executions:
@@ -35,8 +41,9 @@ Some example executions:
 ```bash
 python stack-scraper.py -t python
 python stack-scraper.py -w MATH -t calculus
-python stack-scraper.py -w UBUNTU -t cloud -d ~/temp
-python stack-scraper.py -t sql -d ./temp -l 5000 -v
+python stack-scraper.py -w UBUNTU -t cloud -d ~/temp -f
+python stack-scraper.py -t sql -d ./temp -f -l 5000 -v
+python stack-scraper.py -w SO -t sql -l 5000 -s
 ```
 
 ## Options
@@ -47,7 +54,7 @@ You can always go back to them using the `--help` flag.
 ```bash
 python stack-scraper.py --help
 
-usage: stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-v]
+usage: stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-f] [-s] [-v]
 
 Performs a scraping on a web page of the Stack Exchange network saving the information of the questions in a csv file
 
@@ -62,6 +69,8 @@ optional arguments:
                         the page number to start the search
   -l LIMIT, --limit LIMIT
                         the maximum number of questions to retrieve
+  -f, --file            save the data in a CSV file
+  -s, --save            save the data in the database (the database must exist before)
   -v, --verbose         determines if the program execution is displayed by CLI
 ```
 
@@ -77,6 +86,9 @@ Here are the options in more detail:
 - `-b --begin` the page number to start the search
 - `-l --limit` the number of questions to retrieve
 - `-v --verbose` if the program execution is displayed by CLI
+- `-f --file` save the data in a CSV file
+- `-s --save` save the data in the database (the database must exist before)
+
 
 ## Database
 The following is the ERD diagram of the database.
