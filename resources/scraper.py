@@ -22,7 +22,8 @@ class StackExchangeScraper:
         """
         self.domain = domain
 
-    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results', save_to_db=True):
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results', save_to_db=True,
+                save_to_csv=False):
         """ Find and collect the frequently asked questions and relevant answers
 
         :param str tag: (Optional) A tag specify the category of the search
@@ -31,6 +32,7 @@ class StackExchangeScraper:
         :param bool verbose: Specifies whether the program execution should be printed in the terminal
         :param str _dir: The directory path where the results will be saved
         :param bool save_to_db: Specify if the element should be saved in the database
+        :param bool save_to_csv: Specify if the element should be saved in the database
         """
         questions_counter = 0
         attempts = 0
@@ -76,20 +78,22 @@ class StackExchangeScraper:
                     question_details = self.get_question_details(question_id, verbose=verbose)
 
                     if save_to_db:
-                        entity_manager = EntityManager(source = self.domain)
+                        entity_manager = EntityManager(source=self.domain)
                         entity_manager.save(question_details)
 
-                    # Creating a list with all the data
-                    to_csv.append([question_details.title, question_details.asked, question_details.active,
-                                   question_details.viewed, question_details.vote_count,
-                                   question_details.bookmark_count, question_details.tags, question_details.owner_id,
-                                   question_details.owner_name, question_details.edited_time,
-                                   question_details.edited_id, question_details.edited_name,
-                                   question_details.answer_count, question_details.answers])
+                    if save_to_csv:
+                        # Creating a list with all the data
+                        to_csv.append([question_details.title, question_details.asked, question_details.active,
+                                       question_details.viewed, question_details.vote_count,
+                                       question_details.bookmark_count, question_details.tags,
+                                       question_details.owner_id,
+                                       question_details.owner_name, question_details.edited_time,
+                                       question_details.edited_id, question_details.edited_name,
+                                       question_details.answer_count, question_details.answers])
 
-                    # if verbose:
-                        # print(question_details)
-                        # print('-' * 100, end='\n\n')
+                    if verbose:
+                        print(question_details)
+                        print('-' * 100, end='\n\n')
 
                 except AssertionError as assertion_error:
                     if verbose:
@@ -107,12 +111,14 @@ class StackExchangeScraper:
         if verbose:
             print(f'Scraping finished {questions_counter} questions collected')
 
-        # saving in .csv
-        df = pd.DataFrame(to_csv, columns=['question title', 'asked', 'active',
-                           'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
-                           'owner_name', 'edited_time','edited_id', 'edited_name',
-                           'answer_count', 'answers'])
-        df.to_csv(_dir + f'/{self.__class__.__name__.lower()}_{datetime.datetime.now().strftime("%Y%m%d-%H%M%S")}.csv')
+        if save_to_csv:
+            # saving in .csv
+            df = pd.DataFrame(to_csv, columns=['question title', 'asked', 'active',
+                                               'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
+                                               'owner_name', 'edited_time', 'edited_id', 'edited_name',
+                                               'answer_count', 'answers'])
+            df.to_csv(
+                _dir + f'/{self.__class__.__name__.lower()}_{datetime.datetime.now().strftime("%Y%m%d-%H%M%S")}.csv')
 
     def get_question_details(self, question_id, verbose=False):
         """ Retrieve the detailed information of a specific question and and its answers
@@ -151,7 +157,8 @@ class StackExchangeScraper:
 
         question_post_properties = self.__get_post_data(post_layout_question_container, is_question=True)
 
-        question = ShallowQuestion(question_id, title, asked=asked, active=active, viewed=viewed, answer_count=answer_count,
+        question = ShallowQuestion(question_id, title, asked=asked, active=active, viewed=viewed,
+                                   answer_count=answer_count,
                                    **question_post_properties)
 
         for post_layout_container in post_layout_containers:
@@ -216,7 +223,9 @@ class StackExchangeScraper:
             post_properties['tags'] = [tag.text for tag in post_cell_container.find_all('a', class_='post-tag')]
 
             owner_container = post_cell_container.find('div', class_='owner')
-            if owner_container is not None and owner_container.find('div', class_='user-details') is not None and owner_container.find('div', class_='user-details').a is not None:
+            if owner_container is not None and owner_container.find('div',
+                                                                    class_='user-details') is not None and owner_container.find(
+                    'div', class_='user-details').a is not None:
                 post_properties['owner_name'] = owner_container.find('div', class_='user-details').a.text
                 post_properties['owner_id'] = owner_container.find('div', class_='user-details').a['href']
             else:
