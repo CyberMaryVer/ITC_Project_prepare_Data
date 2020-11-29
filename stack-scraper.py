@@ -29,20 +29,26 @@ def print_message():
 def main():
     """ The main function of the program """
 
-    parser = argparse.ArgumentParser(description='Performs a scraping on a web page of the Stack Exchange network saving the information of the questions in a csv file')
-    parser.add_argument('-t', '--tag', type=str, help='the tag to specify the topic of the search. If it is not specified, it will search within the general FAQ')
+    parser = argparse.ArgumentParser(
+        description='Performs a scraping on a web page of the Stack Exchange network saving the information of the questions in a csv file')
+    parser.add_argument('-t', '--tag', type=str,
+                        help='the tag to specify the topic of the search. If it is not specified, it will search within the general FAQ')
     parser.add_argument('-w', '--where', choices=OBJECT_MAP.keys(), default='SO', type=str,
                         help=f'the target website. -SO: {StackOverflowScraper.DOMAIN}   -MATH: {MathematicsScraper.DOMAIN}   -UBUNTU: {AskUbuntuScraper.DOMAIN}')
     parser.add_argument('-d', '--directory', default='results', type=str,
                         help='the directory path where the results will be saved. If it does not exist, it will be created')
     parser.add_argument('-b', '--begin', default=1, type=int, help='the page number to start the search')
     parser.add_argument('-l', '--limit', default=1000, type=int, help='the maximum number of questions to retrieve')
-    parser.add_argument('-v', '--verbose', action='store_true',  help='determines if the program execution is displayed by CLI')
+    parser.add_argument('-f', '--file', action='store_true', help='save the data in a CSV file')
+    parser.add_argument('-s', '--save', action='store_true',
+                        help='save the data in the database (the database must exist before)')
+    parser.add_argument('-v', '--verbose', action='store_true',
+                        help='determines if the program execution is displayed by CLI')
 
     args = parser.parse_args()
     directory = args.directory
 
-    if not os.path.isdir(directory):
+    if not os.path.isdir(directory) and args.file:
         os.makedirs(directory)
 
     scrapper = OBJECT_MAP[args.where]
@@ -50,12 +56,15 @@ def main():
     if not args.verbose:
         _thread.start_new_thread(print_message, ())
 
-    scrapper.get_faq(tag=args.tag, start_page=1, limit=args.limit, verbose=args.verbose, _dir=directory)
+    scrapper.get_faq(tag=args.tag, start_page=1, limit=args.limit, verbose=args.verbose, _dir=directory,
+                     save_to_db=args.save,
+                     save_to_csv=args.file)
 
     if not args.verbose:
         global IS_RUNNING
         IS_RUNNING = False
         print(f'\rFinished check the {args.directory} directory')
+
 
 if __name__ == '__main__':
     main()

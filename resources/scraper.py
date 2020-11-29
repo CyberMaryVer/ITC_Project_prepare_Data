@@ -22,7 +22,7 @@ class StackExchangeScraper:
         """
         self.domain = domain
 
-    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results', save_to_db=True,
+    def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results', save_to_db=False,
                 save_to_csv=False):
         """ Find and collect the frequently asked questions and relevant answers
 

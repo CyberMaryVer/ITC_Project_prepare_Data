@@ -1,7 +1,6 @@
 from db.connection import engine
 from db.entities import Base
 
-engine.execute('DROP DATABASE stack_exchange')
 engine.execute('CREATE DATABASE IF NOT EXISTS stack_exchange')
 engine.execute('USE stack_exchange')
 
