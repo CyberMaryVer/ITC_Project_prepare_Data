@@ -26,8 +26,11 @@ pip install -r requirements.txt
 To create the database you can run the following script
 
 ```bash
-python3 ./db/enviorment.py
+python3 ./create_database.py
 ```
+
+By default the name of the database is `stack exchange`. 
+You can change the name of the database and other database params modifying the `config.py` file.
 ## Usage
 
 The `stack-scraper.py` command extract question and answers from the [FAQ](https://en.wikipedia.org/wiki/FAQ) list of one  the specified site. The usage is the following.
