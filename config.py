@@ -6,6 +6,6 @@ DATABASE_USER = 'root'
 DATABASE_PASSWORD = 'root'
 DATABASE_LOCATION = 'localhost:3306'
 
-DATABASE_URL = f'mysql+pymysql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_LOCATION}/{DATABASE_NAME}'
+DATABASE_URL = f'mysql+pymysql://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_LOCATION}'
 ECHO = False
 #############################################################################################################

@@ -1,10 +1,11 @@
-from db.connection import engine
+from sqlalchemy import create_engine
 from db.entities import Base
 import config
 
 
 def main():
     """ Create the database """
+    engine = create_engine(config.DATABASE_URL, echo=config.ECHO)
     engine.execute(f'CREATE DATABASE IF NOT EXISTS {config.DATABASE_NAME}')
     engine.execute('USE stack_exchange')
 
