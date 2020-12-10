@@ -42,8 +42,8 @@ def main():
     parser.add_argument('-f', '--file', action='store_true', help='save the data in a CSV file')
     parser.add_argument('-s', '--save', action='store_true',
                         help='save the data in the database (the database must exist before)')
-    parser.add_argument('-k', '--wiki', action='store_true',
-                        help='parse information about tag in wikipedia')
+    parser.add_argument('-e', '--external', action='store_true',
+                        help='check for external information about the tags in wikipedia')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='determines if the program execution is displayed by CLI')
 
@@ -61,7 +61,7 @@ def main():
     scrapper.get_faq(tag=args.tag, start_page=1, limit=args.limit, verbose=args.verbose, _dir=directory,
                      save_to_db=args.save,
                      save_to_csv=args.file,
-                     parse_info_from_wiki=args.wiki)
+                     parse_info_from_wiki=args.external)
 
     if not args.verbose:
         global IS_RUNNING

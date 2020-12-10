@@ -101,7 +101,7 @@ class StackExchangeScraper:
                         print(f'{questions_counter + 1}. ', end="")
 
                     question_details = self.get_question_details(question_id, verbose=verbose)
-                    parse_info_from_wiki = True
+
                     if parse_info_from_wiki:
                         for tag in question_details.tags:
                             try:
@@ -111,15 +111,6 @@ class StackExchangeScraper:
                             except Exception as e:
                                 logger.error(f'There is an error: {e}')
                             else:
-                                print('DEFINITION')
-                                print(question_detail.definition)
-                                print('\n')
-                                print('DETAIL PAGE')
-                                print(question_detail.page)
-                                print('\n')
-                                print('LIST OF DETAILS')
-                                print(question_detail.list_of_tags)
-                                print('\n')
                                 question_details.tags_details.append(question_detail)
 
                     if save_to_db:

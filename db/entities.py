@@ -73,7 +73,7 @@ class TagDetail(Base):
     id = Column('id', Integer, primary_key=True)
     definition = Column('definition', LONGTEXT())
     page = Column('page', String(255))
-    list_of_tags = Column('list_of_tags', String(255))
+    list_of_tags = Column('list_of_tags', LONGTEXT())
 
     tag_id = Column(Integer, ForeignKey('tag.id'))
     tag = relationship('Tag', back_populates='details')
