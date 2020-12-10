@@ -1,0 +1,4 @@
+2020-12-10 02:59:57,681-INFO-FILE:scraper.py-FUNC:__init__-LINE:321-Class initiation: <resources.scraper.StackOverflowScraper object at 0x000001EED2524388>
+2020-12-10 02:59:57,681-INFO-FILE:scraper.py-FUNC:__init__-LINE:44-Class initiation: <resources.scraper.StackOverflowScraper object at 0x000001EED2524388>, domain: https://stackoverflow.com
+2020-12-10 02:59:57,681-INFO-FILE:scraper.py-FUNC:get_faq-LINE:65-Getting the FAQ for: https://stackoverflow.com
+Tag: python

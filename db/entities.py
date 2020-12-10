@@ -59,19 +59,19 @@ class Tag(Base):
 
     questions = relationship('Question', secondary=question_tag, back_populates='tags')
 
-class Tag_details(Base):
-    """ The Tag class map the tag table
-    A tag for a question
-    """
-    # noinspection SpellCheckingInspection
-    __tablename__ = 'tag_details'
-
-    id = Column('id', Integer, primary_key=True)
-    definition = Column('source', String(255))
-    page = Column('source', String(255))
-    list_of_tags = Column('source', String(255))
-
-    tags = relationship('Tag', secondary=question_tag, back_populates='tags')
+# class Tag_details(Base):
+#     """ The Tag class map the tag table
+#     A tag for a question
+#     """
+#     # noinspection SpellCheckingInspection
+#     __tablename__ = 'tag_details'
+#
+#     id = Column('id', Integer, primary_key=True)
+#     definition = Column('source', String(255))
+#     page = Column('source', String(255))
+#     list_of_tags = Column('source', String(255))
+#
+#     tags = relationship('Tag', secondary=question_tag, back_populates='tags')
 
 
 class Question(Base):
