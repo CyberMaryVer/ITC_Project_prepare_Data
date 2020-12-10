@@ -3,7 +3,25 @@ from resources.element import ShallowQuestion
 from db.connection import session
 from db.entities import *
 from datetime import datetime
+import logging
+import sys
 
+logger = logging.getLogger('sql_manager_log')
+logger.setLevel(logging.DEBUG)
+
+# Create Formatter
+formatter = logging.Formatter('%(asctime)s-%(levelname)s-FILE:%(filename)s-FUNC:%(funcName)s-LINE:%(lineno)d-%(message)s')
+
+# create a file handler and add it to logger
+file_handler = logging.FileHandler('sql_manager_log.log')
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+stream_handler = logging.StreamHandler(sys.stdout)
+stream_handler.setLevel(logging.INFO)
+stream_handler.setFormatter(formatter)
+logger.addHandler(stream_handler)
 
 def str_to_time(date, fmt='%Y-%m-%d %H:%M:%SZ', default=None):
     """ Convert a string to datetime.
@@ -18,6 +36,7 @@ def str_to_time(date, fmt='%Y-%m-%d %H:%M:%SZ', default=None):
     try:
         return datetime.strptime(date, fmt)
     except (ValueError, TypeError):
+        logger.error(f'ValueError, TypeError')
         return default
 
 
@@ -31,6 +50,7 @@ def extract_id(route):
     try:
         return int(route.split('/')[-2])
     except (AttributeError, IndexError, ValueError):
+        logger.error(f'AttributeError, IndexError, ValueError')
         return None
 
 
@@ -44,6 +64,7 @@ def extract_username(route):
     try:
         return route.split('/')[-1]
     except (AttributeError, IndexError):
+        logger.error(f'AttributeError, IndexError')
         return None
 
 
@@ -53,6 +74,7 @@ class EntityManager:
 
         :param str source: A domain belonging to the Stack Exchange network
         """
+        logger.info(f'Session opened. Class initiated: {self}, source: {source}')
         self.source = source
 
     def save(self, shallow_question, tag_details=None):
@@ -180,4 +202,6 @@ class EntityManager:
 
         if question.id is None:
             session.add(question)
+
+        logger.info('Session closed')
         session.commit()
