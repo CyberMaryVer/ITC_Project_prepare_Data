@@ -50,6 +50,7 @@ python stack-scraper.py -w MATH -t calculus
 python stack-scraper.py -w UBUNTU -t cloud -d ~/temp -f
 python stack-scraper.py -t sql -d ./temp -f -l 5000 -v
 python stack-scraper.py -w SO -t sql -l 5000 -s
+python stack-scraper.py -w SO -t python -l 5 -s -e -v
 ```
 
 ## Options
@@ -60,7 +61,7 @@ You can always go back to them using the `--help` flag.
 ```bash
 python stack-scraper.py --help
 
-usage: stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-f] [-s] [-v]
+usage: stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-f] [-s] [-e] [-v]
 
 Performs a scraping on a web page of the Stack Exchange network saving the information of the questions in a csv file
 
@@ -77,6 +78,7 @@ optional arguments:
                         the maximum number of questions to retrieve
   -f, --file            save the data in a CSV file
   -s, --save            save the data in the database (the database must exist before)
+  -e, --external        check for external information about the tags in wikipedia
   -v, --verbose         determines if the program execution is displayed by CLI
 ```
 
@@ -94,6 +96,7 @@ Here are the options in more detail:
 - `-v --verbose` if the program execution is displayed by CLI
 - `-f --file` save the data in a CSV file
 - `-s --save` save the data in the database (the database must exist before)
+- `-e --external` check for external information about the tags in wikipedia.
 
 
 ## Database
