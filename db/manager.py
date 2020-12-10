@@ -55,7 +55,7 @@ class EntityManager:
         """
         self.source = source
 
-    def save(self, shallow_question):
+    def save(self, shallow_question, tag_details=None):
         """ Save (create or update) a question in the database.
         Create records (Source, User, Tag, Answer) only if they do not already exist in the database.
 
@@ -110,6 +110,12 @@ class EntityManager:
                 tag = Tag()
                 tag.name = tag_name
             question.tags.append(tag)
+
+        # tag_wiki = session.query(Tag_details).filter_by(name=tag_name).first()
+        # tag_wiki = Tag_details()
+        # tag_wiki.definition = tag_details[0]
+        # tag_wiki.page = tag_details[1]
+        # tag_wiki.list_of_tags = tag_details[2]
 
         question.edited_time = str_to_time(shallow_question.edited_time)
 

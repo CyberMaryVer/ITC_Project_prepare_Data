@@ -4,6 +4,27 @@ from db.manager import EntityManager
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
+import wikipedia # scrape wikipedia api
+from api_test import *
+import logging
+import sys
+
+logger = logging.getLogger('logfile')
+logger.setLevel(logging.DEBUG)
+
+# Create Formatter
+formatter = logging.Formatter('%(asctime)s-%(levelname)s-FILE:%(filename)s-FUNC:%(funcName)s-LINE:%(lineno)d-%(message)s')
+
+# create a file handler and add it to logger
+file_handler = logging.FileHandler('movies.log')
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
+stream_handler = logging.StreamHandler(sys.stdout)
+stream_handler.setLevel(logging.INFO)
+stream_handler.setFormatter(formatter)
+logger.addHandler(stream_handler)
 
 
 class StackExchangeScraper:
@@ -20,10 +41,11 @@ class StackExchangeScraper:
 
         :param str domain: A domain belonging to the Stack Exchange network
         """
+        logger.info(f'Class initiation: {self}, domain: {domain}')
         self.domain = domain
 
     def get_faq(self, tag=None, start_page=1, limit=100, verbose=False, _dir='results', save_to_db=False,
-                save_to_csv=False):
+                save_to_csv=False, parse_info_from_wiki=False):
         """ Find and collect the frequently asked questions and relevant answers
 
         :param str tag: (Optional) A tag specify the category of the search
@@ -40,6 +62,7 @@ class StackExchangeScraper:
         # Creating an empty list for data
         to_csv = []
 
+        logger.info(f'Getting the FAQ for: {self.domain}\nTag: {tag}')
         if verbose:
             print(f'Getting the FAQ for {self.domain}', end="")
             if tag is not None:
@@ -59,6 +82,7 @@ class StackExchangeScraper:
 
             if page.status_code != requests.codes.ok:
                 if attempts >= self.FAULT_TOLERANCE:
+                    logger.error(f'There is a problem with URL: {faq_url} STATUS: {page.status_code}')
                     assert Exception(f'There is a problem with URL: {faq_url} STATUS: {page.status_code}')
                 attempts += 1
                 continue
@@ -77,9 +101,13 @@ class StackExchangeScraper:
 
                     question_details = self.get_question_details(question_id, verbose=verbose)
 
+                    tag_details = None
+                    if parse_info_from_wiki:
+                        tag_details = parse_wiki(tag=tag)
+
                     if save_to_db:
                         entity_manager = EntityManager(source=self.domain)
-                        entity_manager.save(question_details)
+                        entity_manager.save(question_details, tag_details)
 
                     if save_to_csv:
                         # Creating a list with all the data
@@ -96,6 +124,7 @@ class StackExchangeScraper:
                         print('-' * 100, end='\n\n')
 
                 except AssertionError as assertion_error:
+                    logger.error(f'Invalid status code: {assertion_error}')
                     if verbose:
                         print('Invalid status code')
                         print(assertion_error)
@@ -109,6 +138,7 @@ class StackExchangeScraper:
             start_page += 1
 
         if verbose:
+            logger.info(f'Scraping finished {questions_counter} questions collected')
             print(f'Scraping finished {questions_counter} questions collected')
 
         if save_to_csv:
@@ -119,6 +149,8 @@ class StackExchangeScraper:
                                                'answer_count', 'answers'])
             df.to_csv(
                 _dir + f'/{self.__class__.__name__.lower()}_{datetime.datetime.now().strftime("%Y%m%d-%H%M%S")}.csv')
+            logger.info(f'Data was saved to '
+                        f'{self.__class__.__name__.lower()}_{datetime.datetime.now().strftime("%Y%m%d-%H%M%S")}.csv')
 
     def get_question_details(self, question_id, verbose=False):
         """ Retrieve the detailed information of a specific question and and its answers
@@ -166,17 +198,21 @@ class StackExchangeScraper:
                 answer_post_properties = self.__get_post_data(post_layout_container)
                 question.add_answer(ShallowAnswer(**answer_post_properties))
             except AttributeError as attribute_error:
+                logger.error(f'Incompatible format: {attribute_error}')
                 if verbose:
                     print('Incompatible format')
                     print(attribute_error)
                 pass
             except TypeError as type_error:
+                logger.error(f'Missing Attributes for Answer Object: {type_error}')
                 if verbose:
                     print('Missing Attributes for Answer Object')
                     print(type_error)
                 pass
 
         return question
+
+
 
     def __question_url(self, question_id):
         """ Generate the url for a specific question
@@ -282,6 +318,7 @@ class StackOverflowScraper(StackExchangeScraper):
 
     def __init__(self):
         """ Constructor method """
+        logger.info(f'Class initiation: {self}')
         super().__init__(domain=self.DOMAIN)
 
 
@@ -291,6 +328,7 @@ class AskUbuntuScraper(StackExchangeScraper):
 
     def __init__(self):
         """ Constructor method """
+        logger.info(f'Class initiation: {self}')
         super().__init__(domain=self.DOMAIN)
 
 
@@ -300,4 +338,5 @@ class MathematicsScraper(StackExchangeScraper):
 
     def __init__(self):
         """ Constructor method """
+        logger.info(f'Class initiation: {self}')
         super().__init__(domain=self.DOMAIN)

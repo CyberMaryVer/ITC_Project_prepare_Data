@@ -32,6 +32,9 @@ python3 ./create_database.py
 By default the name of the database is `stack exchange`. 
 You can change the name of the database and other database params modifying the `config.py` file.
 ## Usage
+You can set options using the main notation standards:
+
+**-s --search** tag
 
 The `stack-scraper.py` command extract question and answers from the [FAQ](https://en.wikipedia.org/wiki/FAQ) list of one  the specified site. The usage is the following.
 
@@ -156,6 +159,17 @@ Example of a non verbose execution:
 
 ![Alt Text](img/non-verbose-execution.gif)
 
+**-w --where** website to parse 
+* SO: stackoverflow (by default)
+* MATH: math.stackexchange
+* UBUNTU: ask.ubuntu
+
+**-d --directory** save directory
+```bash
+python main.py -s python
+python main.py -w MATH -s calculus
+python main.py -w UBUNTU -s cloud -d c:/temp
+```
 ## Contributing
 Pull requests are welcome (especially from tutors). For major changes, please open an issue first to discuss what you would like to change.
 
