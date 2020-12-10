@@ -99,7 +99,7 @@ Here are the options in more detail:
 ## Database
 The following is the ERD diagram of the database.
 
-![Alt Text](img/erd-diagram.gif)
+![Alt Text](img/erd-diagram-v2.gif)
 
 Below you can find a description of the tables and their columns:
 - **source**: The source is the stackExchange domain that Question and User belongs
@@ -114,6 +114,12 @@ Below you can find a description of the tables and their columns:
 - **tag**: A tag for a question
     - `id`: PRIMARY KEY, INT auto incremental
     - `name`: VARCHAR, name of the tag
+- **tag_detail**: Details about a tag
+    - `id`: PRIMARY KEY, INT auto incremental
+    - `definition`: VARCHAR, A short description about the tag
+    - `page`: VARCHAR: A long description about the tag
+    - `list_of_tags`: VARCHAR related tag names (not in the database)
+    - `tag_id`: INT, id of the tag
 - **question**: A question from stackExchange domain
     - `id`: INT, auto incremental
     - `source_id`: FOREIGN KEY, INT, id of the source (stackExchange domain)

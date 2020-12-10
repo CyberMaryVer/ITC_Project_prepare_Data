@@ -1,6 +1,8 @@
 import wikipedia
 import warnings
+
 warnings.filterwarnings('ignore')
+
 
 def parse_wiki(tag):
     definition, page, list_of_tags = None, None, None
@@ -14,8 +16,10 @@ def parse_wiki(tag):
         pass
     return [definition, page, list_of_tags]
 
+
 def test_func():
     print(parse_wiki('klklkl'))
+
 
 if __name__ == '__main__':
     test_func()

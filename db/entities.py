@@ -13,7 +13,7 @@ class Source(Base):
     __tablename__ = 'source'
 
     id = Column('id', Integer, primary_key=True)
-    name = Column('name', String(255))
+    name = Column('name', String(140))
 
     questions = relationship('Question', back_populates='source')
     users = relationship('User', back_populates='source')
@@ -32,13 +32,13 @@ class User(Base):
     source = relationship('Source', back_populates='users')
 
     stack_exchange_id = Column('stack_exchange_id', Integer)
-    username = Column('username', String(255))
+    username = Column('username', String(140))
     name = Column('name', String(255))
 
     questions = relationship('Question', foreign_keys='Question.owner_id', back_populates='owner')
     edited_questions = relationship('Question', foreign_keys='Question.editor_id', back_populates='editor')
     answers = relationship('Answer', foreign_keys='Answer.user_id', back_populates='user')
-    edited_answers = relationship('Answer',  foreign_keys='Answer.editor_id', back_populates='editor')
+    edited_answers = relationship('Answer', foreign_keys='Answer.editor_id', back_populates='editor')
 
 
 question_tag = Table('question_tag', Base.metadata,
@@ -55,23 +55,27 @@ class Tag(Base):
     __tablename__ = 'tag'
 
     id = Column('id', Integer, primary_key=True)
-    name = Column('source', String(255))
+    name = Column('source', String(140))
 
     questions = relationship('Question', secondary=question_tag, back_populates='tags')
 
-class Tag_details(Base):
-    """ The Tag class map the tag table
-    A tag for a question
+    details = relationship('TagDetail', uselist=False, back_populates='tag')
+
+
+class TagDetail(Base):
+    """ The TagDetail class save the details obtain
+    about a tag
     """
     # noinspection SpellCheckingInspection
-    __tablename__ = 'tag_details'
+    __tablename__ = 'tag_detail'
 
     id = Column('id', Integer, primary_key=True)
-    definition = Column('source', String(255))
-    page = Column('source', String(255))
-    list_of_tags = Column('source', String(255))
+    definition = Column('definition', String(255))
+    page = Column('page', String(255))
+    list_of_tags = Column('list_of_tags', String(255))
 
-    tags = relationship('Tag', secondary=question_tag, back_populates='tags')
+    tag_id = Column(Integer, ForeignKey('tag.id'))
+    tag = relationship('Tag', back_populates='details')
 
 
 class Question(Base):
