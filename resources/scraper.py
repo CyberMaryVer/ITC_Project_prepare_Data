@@ -101,14 +101,30 @@ class StackExchangeScraper:
                         print(f'{questions_counter + 1}. ', end="")
 
                     question_details = self.get_question_details(question_id, verbose=verbose)
-
-                    tag_details = None
+                    parse_info_from_wiki = True
                     if parse_info_from_wiki:
-                        tag_details = parse_wiki(tag=tag)
+                        for tag in question_details.tags:
+                            try:
+                                question_detail = parse_wiki(tag=tag)
+                            except wikipedia.exceptions.DisambiguationError:
+                                logger.error(f'The tag does not exist in wikipedia')
+                            except Exception as e:
+                                logger.error(f'There is an error: {e}')
+                            else:
+                                print('DEFINITION')
+                                print(question_detail.definition)
+                                print('\n')
+                                print('DETAIL PAGE')
+                                print(question_detail.page)
+                                print('\n')
+                                print('LIST OF DETAILS')
+                                print(question_detail.list_of_tags)
+                                print('\n')
+                                question_details.tags_details.append(question_detail)
 
                     if save_to_db:
                         entity_manager = EntityManager(source=self.domain)
-                        entity_manager.save(question_details, tag_details)
+                        entity_manager.save(question_details)
 
                     if save_to_csv:
                         to_csv.append([question_details.title, question_details.asked, question_details.active,

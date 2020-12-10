@@ -1,6 +1,7 @@
 from sqlalchemy import Table, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.mysql import LONGTEXT
 
 Base = declarative_base()
 
@@ -70,7 +71,7 @@ class TagDetail(Base):
     __tablename__ = 'tag_detail'
 
     id = Column('id', Integer, primary_key=True)
-    definition = Column('definition', String(255))
+    definition = Column('definition', LONGTEXT())
     page = Column('page', String(255))
     list_of_tags = Column('list_of_tags', String(255))
 

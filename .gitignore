@@ -78,6 +78,7 @@ venv/
 # Files types
 *.csv
 results/
+*.log
 
 # Pycharm directories
 __pycache__/
