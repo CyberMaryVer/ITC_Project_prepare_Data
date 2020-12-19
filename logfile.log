@@ -1,0 +1,550 @@
+2020-12-10 02:59:57,681-INFO-FILE:scraper.py-FUNC:__init__-LINE:321-Class initiation: <resources.scraper.StackOverflowScraper object at 0x000001EED2524388>
+2020-12-10 02:59:57,681-INFO-FILE:scraper.py-FUNC:__init__-LINE:44-Class initiation: <resources.scraper.StackOverflowScraper object at 0x000001EED2524388>, domain: https://stackoverflow.com
+2020-12-10 02:59:57,681-INFO-FILE:scraper.py-FUNC:get_faq-LINE:65-Getting the FAQ for: https://stackoverflow.com
+Tag: python
+2020-12-10 03:09:13,545-INFO-FILE:scraper.py-FUNC:__init__-LINE:327-Class initiation: <resources.scraper.StackOverflowScraper object at 0x0000017DC10B4488>
+2020-12-10 03:09:13,546-INFO-FILE:scraper.py-FUNC:__init__-LINE:44-Class initiation: <resources.scraper.StackOverflowScraper object at 0x0000017DC10B4488>, domain: https://stackoverflow.com
+2020-12-10 03:09:13,546-INFO-FILE:scraper.py-FUNC:get_faq-LINE:65-Getting the FAQ for: https://stackoverflow.com
+Tag: python
+2020-12-10 03:09:13,546-INFO-FILE:scraper.py-FUNC:get_faq-LINE:76-Requesting page 1: https://stackoverflow.com/questions/tagged/python?tab=votes&page=1&pagesize=50
+2020-12-10 03:09:14,198-INFO-FILE:scraper.py-FUNC:get_faq-LINE:82---> Status: 200
+2020-12-10 03:09:23,175-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 419163
+title: What does if __name__ == “__main__”: do?
+asked: 2009-01-07T04:11:00
+active: 2020-12-03 13:06:10Z
+viewed: Viewed 3,234,114 times
+
+vote_count: 6477
+bookmark_count: 2763
+tags: ['python', 'namespaces', 'main', 'python-module', 'idioms']
+
+owner_id: /users/51518/devoted
+owner_name: Devoted
+edited_time: 2020-02-26 21:04:44Z
+edited_id: /users/3739391/iliketocode
+edited_name: iliketocode
+
+Answers: 34
+{'user_time': '2009-01-07 04:26:43Z', 'user_id': '/users/25050/mr-fooz', 'user_name': 'Mr Fooz', 'vote_count': '7159', 'edit_time': '2020-09-11 23:22:52Z', 'edit_id': '/users/25050/mr-fooz', 'edit_name': 'Mr Fooz'}
+{'user_time': '2009-01-07 04:28:23Z', 'user_id': '/users/9530/adam-rosenfield', 'user_name': 'Adam Rosenfield', 'vote_count': '1886', 'edit_time': '2018-01-31 13:28:16Z', 'edit_id': '/users/6160119/tonechas', 'edit_name': 'Tonechas'}
+{'user_time': '2009-01-07 11:35:17Z', 'user_id': '/users/15274/pi', 'user_name': 'pi.', 'vote_count': '745', 'edit_time': '2018-12-18 09:25:19Z', 'edit_id': '/users/15274/pi', 'edit_name': 'pi.'}
+{'user_time': '2013-11-23 04:38:25Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '523', 'edit_time': '2018-03-27 02:27:47Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2009-01-07 04:14:23Z', 'user_id': '/users/1057/harley-holcombe', 'user_name': 'Harley Holcombe', 'vote_count': '130', 'edit_time': '2015-07-10 15:49:13Z', 'edit_id': '/users/1709587/mark-amery', 'edit_name': 'Mark Amery'}
+{'user_time': '2014-10-14 20:22:55Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '84', 'edit_time': '2017-01-10 17:35:04Z', 'edit_id': '/users/271697/coffee-grinder', 'edit_name': 'coffee-grinder'}
+{'user_time': '2016-09-29 04:33:07Z', 'user_id': '/users/6833793/joechoj', 'user_name': 'joechoj', 'vote_count': '73', 'edit_time': '2018-05-23 22:29:32Z', 'edit_id': '/users/6833793/joechoj', 'edit_name': 'joechoj'}
+{'user_time': '2013-04-03 14:09:11Z', 'user_id': '/users/1384641/nabeel-ahmed', 'user_name': 'Nabeel Ahmed', 'vote_count': '53', 'edit_time': '2018-05-23 22:07:29Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-10-15 09:07:42Z', 'user_id': '/users/3104473/redbandit', 'user_name': 'redbandit', 'vote_count': '46', 'edit_time': '2018-05-23 22:28:19Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-01-20 17:48:56Z', 'user_id': '/users/2961878/alisa', 'user_name': 'Alisa', 'vote_count': '42', 'edit_time': '2020-05-27 10:50:24Z', 'edit_id': '/users/2115079/kubuntu', 'edit_name': 'kubuntu'}
+{'user_time': '2013-12-11 11:23:53Z', 'user_id': '/users/1803858/zain', 'user_name': 'Zain', 'vote_count': '36', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-08-22 18:53:15Z', 'user_id': '/users/7201349/larry', 'user_name': 'Larry', 'vote_count': '34', 'edit_time': '2018-05-23 22:31:42Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-04-03 19:32:56Z', 'user_id': '/users/8372104/simon', 'user_name': 'Simon', 'vote_count': '29', 'edit_time': '2018-05-23 22:39:09Z', 'edit_id': '/users/8372104/simon', 'edit_name': 'Simon'}
+{'user_time': '2016-11-30 06:47:44Z', 'user_id': '/users/5401681/inconnu', 'user_name': 'Inconnu', 'vote_count': '27', 'edit_time': '2018-05-23 22:30:36Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-06-24 15:48:36Z', 'user_id': '/users/8932910/jack', 'user_name': 'jack', 'vote_count': '27', 'edit_time': '2020-08-09 22:19:52Z', 'edit_id': '/users/8932910/jack', 'edit_name': 'jack'}
+{'user_time': '2013-01-24 13:48:38Z', 'user_id': '/users/193892/prof-falken', 'user_name': 'Prof. Falken', 'vote_count': '24', 'edit_time': '2018-09-03 07:05:11Z', 'edit_id': '/users/193892/prof-falken', 'edit_name': 'Prof. Falken'}
+{'user_time': '2015-11-25 12:26:57Z', 'user_id': '/users/5417963/codewizard', 'user_name': 'codewizard', 'vote_count': '20', 'edit_time': '2016-07-20 09:30:24Z', 'edit_id': '/users/5417963/codewizard', 'edit_name': 'codewizard'}
+{'user_time': '2016-04-24 08:23:01Z', 'user_id': '/users/5866942/the-gr8-adakron', 'user_name': 'The Gr8 Adakron', 'vote_count': '19', 'edit_time': '2018-05-23 22:14:07Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-03-13 21:44:26Z', 'user_id': '/users/3927314/kgf3jfutw', 'user_name': 'kgf3JfUtW', 'vote_count': '16', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-06-22 10:47:06Z', 'user_id': '/users/5064153/janarthanan-ramu', 'user_name': 'Janarthanan Ramu', 'vote_count': '16', 'edit_time': '2019-02-06 23:16:06Z', 'edit_id': '/users/4217744/simhumileco', 'edit_name': 'simhumileco'}
+{'user_time': '2020-02-01 13:26:02Z', 'user_id': '/users/7131757/giorgos-myrianthous', 'user_name': 'Giorgos Myrianthous', 'vote_count': '16', 'edit_time': '2020-12-03 13:06:10Z', 'edit_id': '/users/7131757/giorgos-myrianthous', 'edit_name': 'Giorgos Myrianthous'}
+{'user_time': '2017-09-22 18:32:24Z', 'user_id': '/users/5896591/personal-cloud', 'user_name': 'personal_cloud', 'vote_count': '15', 'edit_time': '2018-04-18 21:05:59Z', 'edit_id': '/users/5896591/personal-cloud', 'edit_name': 'personal_cloud'}
+{'user_time': '2019-06-12 09:28:39Z', 'user_id': '/users/8930395/rishi-bansal', 'user_name': 'Rishi Bansal', 'vote_count': '11', 'edit_time': '2019-12-23 23:43:52Z', 'edit_id': '/users/463213/charlesreid1', 'edit_name': 'charlesreid1'}
+{'user_time': '2018-10-07 04:52:46Z', 'user_id': '/users/1952852/raja', 'user_name': 'Raja', 'vote_count': '10', 'edit_time': '2018-10-18 03:09:32Z', 'edit_id': '/users/6622587/eyllanesc', 'edit_name': 'eyllanesc'}
+{'user_time': '2018-06-19 11:44:29Z', 'user_id': '/users/9364854/pah8j', 'user_name': 'pah8J', 'vote_count': '6', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2019-07-30 16:22:15Z', 'user_id': '/users/9716545/nikil-munireddy', 'user_name': 'Nikil Munireddy', 'vote_count': '5', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-04-04 14:32:34Z', 'user_id': '/users/3043331/ali-hallaji', 'user_name': 'Ali Hallaji', 'vote_count': '4', 'edit_time': '2018-05-23 22:36:51Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-05-04 08:25:42Z', 'user_id': '/users/6453817/preetika-mondal', 'user_name': 'preetika mondal', 'vote_count': '4', 'edit_time': '2018-05-23 22:38:56Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-01-08 15:24:38Z', 'user_id': '/users/8865579/dark-c0d3r', 'user_name': 'DARK_C0D3R', 'vote_count': '3', 'edit_time': '2018-05-23 22:34:14Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2020-04-27 12:12:54Z', 'user_id': '/users/12168946/reinstate-c0mmunism', 'user_name': 'Reinstate C0MMUNiSM', 'vote_count': '3', 'edit_time': '2020-05-12 15:55:56Z', 'edit_id': '/users/9654083/thetechrobo36414519', 'edit_name': 'TheTechRobo36414519'}
+2020-12-10 03:09:26,063-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 394809
+title: Does Python have a ternary conditional operator?
+asked: 2008-12-27T08:32:18
+active: 2020-12-09 15:17:41Z
+viewed: Viewed 2,029,763 times
+
+vote_count: 6369
+bookmark_count: 930
+tags: ['python', 'operators', 'ternary-operator', 'conditional-operator']
+
+owner_id: None
+owner_name: None
+edited_time: 2019-08-09 14:12:26Z
+edited_id: None
+edited_name: None
+
+Answers: 27
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '7387', 'edit_time': '2020-08-05 23:52:14Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '835', 'edit_time': '2015-10-17 07:35:10Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '360', 'edit_time': '2014-01-13 07:16:48Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '284', 'edit_time': '2019-05-15 15:03:41Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '165', 'edit_time': '2015-10-17 07:43:53Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '126', 'edit_time': '2017-08-07 14:22:32Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '100', 'edit_time': '2019-05-09 09:45:33Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '75', 'edit_time': '2019-01-26 14:05:18Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '63', 'edit_time': '2012-04-25 12:02:06Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '44', 'edit_time': '2013-01-14 15:56:09Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '38', 'edit_time': '2016-08-08 18:56:31Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '23', 'edit_time': '2013-11-20 10:44:12Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '21', 'edit_time': '2018-04-04 14:02:17Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '20', 'edit_time': '2018-12-06 14:45:27Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '19', 'edit_time': '2020-06-20 09:12:55Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '19', 'edit_time': '2020-02-22 13:03:35Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '18', 'edit_time': '2016-05-23 19:16:26Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '11', 'edit_time': '2019-10-16 08:37:26Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '10', 'edit_time': '2019-01-04 22:02:14Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '7', 'edit_time': '2018-10-21 20:46:34Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '4', 'edit_time': '2020-10-22 14:04:12Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '2', 'edit_time': '2020-03-15 06:42:19Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '0', 'edit_time': '2020-12-09 15:17:41Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-1', 'edit_time': '2020-03-26 21:59:43Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-2', 'edit_time': '2018-04-26 16:22:58Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-2', 'edit_time': '2019-05-12 13:03:48Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-3', 'edit_time': '2019-10-23 07:22:58Z', 'edit_id': None, 'edit_name': None}
+2020-12-10 03:09:37,297-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 82831
+title: How do I check whether a file exists without exceptions?
+asked: 2008-09-17T12:55:00
+active: 2020-10-29 04:34:07Z
+viewed: Viewed 4,121,912 times
+
+vote_count: 5884
+bookmark_count: 970
+tags: ['python', 'file', 'file-exists']
+
+owner_id: /users/15616/spence91
+owner_name: spence91
+edited_time: 2020-05-04 19:28:02Z
+edited_id: /users/3739391/iliketocode
+edited_name: iliketocode
+
+Answers: 39
+{'user_time': '2008-09-17 12:57:51Z', 'user_id': '/users/15682/rslite', 'user_name': 'rslite', 'vote_count': '5414', 'edit_time': '2019-05-13 10:40:43Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2008-09-17 12:57:08Z', 'user_id': '/users/7136/pierrebdr', 'user_name': 'PierreBdR', 'vote_count': '2227', 'edit_time': '2018-10-19 08:58:59Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2008-09-17 15:01:14Z', 'user_id': '/users/15625/bortzmeyer', 'user_name': 'bortzmeyer', 'vote_count': '1032', 'edit_time': '2020-03-03 17:45:09Z', 'edit_id': '/users/3064538/boris', 'edit_name': 'Boris'}
+{'user_time': '2008-09-17 12:55:48Z', 'user_id': '/users/215086/paul', 'user_name': 'Paul', 'vote_count': '657', 'edit_time': '2017-06-21 20:33:46Z', 'edit_id': '/users/494074/ankur-agarwal', 'edit_name': 'Ankur Agarwal'}
+{'user_time': '2012-01-16 05:57:12Z', 'user_id': '/users/731963/yugal-jindle', 'user_name': 'Yugal Jindle', 'vote_count': '374', 'edit_time': '2020-03-26 11:35:27Z', 'edit_id': '/users/7871601/null', 'edit_name': 'null'}
+{'user_time': '2008-09-17 12:56:22Z', 'user_id': '/users/6445/benefactual', 'user_name': 'benefactual', 'vote_count': '308', 'edit_time': '2018-06-02 20:52:01Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-06-20 19:28:07Z', 'user_id': '/users/4788546/cristifati', 'user_name': 'CristiFati', 'vote_count': '255', 'edit_time': '2019-02-08 09:36:33Z', 'edit_id': '/users/4788546/cristifati', 'edit_name': 'CristiFati'}
+{'user_time': '2014-02-08 02:38:42Z', 'user_id': '/users/1612701/cody-piersall', 'user_name': 'Cody Piersall', 'vote_count': '181', 'edit_time': '2020-09-12 04:42:15Z', 'edit_id': '/users/1217270/honest-abe', 'edit_name': 'Honest Abe'}
+{'user_time': '2013-06-27 13:38:04Z', 'user_id': '/users/103734/un33k', 'user_name': 'un33k', 'vote_count': '158', 'edit_time': '2018-01-14 04:07:53Z', 'edit_id': '/users/2069807/mrwonderful', 'edit_name': 'MrWonderful'}
+{'user_time': '2009-11-04 00:48:06Z', 'user_id': '/users/5128/pkoch', 'user_name': 'pkoch', 'vote_count': '129', 'edit_time': '2014-04-28 01:01:59Z', 'edit_id': '/users/1217270/honest-abe', 'edit_name': 'Honest Abe'}
+{'user_time': '2015-08-11 03:54:25Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '125', 'edit_time': '2018-02-25 20:45:39Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2015-05-25 18:29:22Z', 'user_id': '/users/4141689/karlgzafiris', 'user_name': 'karlgzafiris', 'vote_count': '89', 'edit_time': '2017-05-16 16:36:46Z', 'edit_id': '/users/4141689/karlgzafiris', 'edit_name': 'karlgzafiris'}
+{'user_time': '2016-10-08 12:43:02Z', 'user_id': '/users/5177604/tom-fuller', 'user_name': 'Tom Fuller', 'vote_count': '88', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-02-24 12:44:10Z', 'user_id': '/users/5968477/kaibuxe', 'user_name': 'KaiBuxe', 'vote_count': '75', 'edit_time': '2017-05-27 01:00:22Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2013-09-25 01:52:46Z', 'user_id': '/users/225730/chad', 'user_name': 'chad', 'vote_count': '68', 'edit_time': '2015-08-25 03:12:24Z', 'edit_id': '/users/225730/chad', 'edit_name': 'chad'}
+{'user_time': '2011-01-25 23:00:01Z', 'user_id': '/users/589765/philberndt', 'user_name': 'philberndt', 'vote_count': '61', 'edit_time': '2017-05-27 00:43:51Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-12-04 08:51:49Z', 'user_id': '/users/7301792/calculus', 'user_name': 'Calculus', 'vote_count': '53', 'edit_time': '2018-12-23 10:46:13Z', 'edit_id': '/users/5997596/azat-ibrakov', 'edit_name': 'Azat Ibrakov'}
+{'user_time': '2014-12-26 20:05:32Z', 'user_id': '/users/4293417/zizouz212', 'user_name': 'Zizouz212', 'vote_count': '52', 'edit_time': '2017-05-27 00:52:18Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-17 13:13:31Z', 'user_id': '/users/12138/zgoda', 'user_name': 'zgoda', 'vote_count': '38', 'edit_time': '2016-05-04 15:24:02Z', 'edit_id': '/users/2868335/armatita', 'edit_name': 'armatita'}
+{'user_time': '2014-10-13 07:45:16Z', 'user_id': '/users/2843583/bergercookie', 'user_name': 'bergercookie', 'vote_count': '38', 'edit_time': '2020-02-21 13:28:05Z', 'edit_id': '/users/5695374/tshilidzi-mudau', 'edit_name': 'Tshilidzi Mudau'}
+{'user_time': '2015-04-28 02:45:31Z', 'user_id': '/users/797495/pedro-lobito', 'user_name': 'Pedro Lobito', 'vote_count': '20', 'edit_time': '2015-07-18 17:41:08Z', 'edit_id': '/users/797495/pedro-lobito', 'edit_name': 'Pedro Lobito'}
+{'user_time': '2017-08-10 05:50:16Z', 'user_id': '/users/6291574/durjoy', 'user_name': 'durjoy', 'vote_count': '20', 'edit_time': '2018-09-01 01:00:51Z', 'edit_id': '/users/1896134/jayrizzo', 'edit_name': 'JayRizzo'}
+{'user_time': '2014-02-10 21:30:20Z', 'user_id': '/users/476266/chris', 'user_name': 'Chris', 'vote_count': '18', 'edit_time': '2017-05-27 00:48:31Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-03-04 06:24:37Z', 'user_id': '/users/3043331/ali-hallaji', 'user_name': 'Ali Hallaji', 'vote_count': '17', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-08-05 15:54:37Z', 'user_id': '/users/2532408/marcel-wilson', 'user_name': 'Marcel Wilson', 'vote_count': '16', 'edit_time': '2017-04-07 16:10:59Z', 'edit_id': '/users/2532408/marcel-wilson', 'edit_name': 'Marcel Wilson'}
+{'user_time': '2016-05-05 12:00:42Z', 'user_id': '/users/2379433/mike-mckerns', 'user_name': 'Mike McKerns', 'vote_count': '16', 'edit_time': '2017-05-27 00:59:52Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-08-29 16:15:29Z', 'user_id': '/users/601770/love-and-peace-joe-codeswell', 'user_name': 'Love and peace - Joe Codeswell', 'vote_count': '15', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2014-12-20 15:21:40Z', 'user_id': '/users/2230891/pradip-das', 'user_name': 'Pradip Das', 'vote_count': '12', 'edit_time': '2017-05-27 00:49:25Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-12-02 06:39:08Z', 'user_id': '/users/5401681/inconnu', 'user_name': 'Inconnu', 'vote_count': '12', 'edit_time': '2017-05-27 00:57:43Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-08-05 06:28:27Z', 'user_id': '/users/2128327/khaled-k', 'user_name': 'Khaled.K', 'vote_count': '9', 'edit_time': '2015-10-08 21:22:53Z', 'edit_id': '/users/2397850/bubble', 'edit_name': 'bubble'}
+2020-12-10 03:09:52,018-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 89228
+title: How to call an external command?
+asked: 2008-09-18T01:35:30
+active: 2020-11-15 03:27:21Z
+viewed: Viewed 3,550,190 times
+
+vote_count: 5100
+bookmark_count: 1559
+tags: ['python', 'shell', 'terminal', 'subprocess', 'command']
+
+owner_id: /users/17085/freshwower
+owner_name: freshWoWer
+edited_time: 2020-08-24 12:25:41Z
+edited_id: /users/355230/martineau
+edited_name: martineau
+
+Answers: 62
+{'user_time': '2008-09-18 01:39:35Z', 'user_id': '/users/11465/david-cournapeau', 'user_name': 'David Cournapeau', 'vote_count': '4895', 'edit_time': '2020-11-15 03:27:21Z', 'edit_id': '/users/7389107/szymon-bednorz', 'edit_name': 'Szymon Bednorz'}
+{'user_time': '2008-09-18 13:11:46Z', 'user_id': '/users/1694/eli-courtwright', 'user_name': 'Eli Courtwright', 'vote_count': '3057', 'edit_time': '2019-10-04 02:34:49Z', 'edit_id': '/users/7758804/trenton-mckinney', 'edit_name': 'Trenton McKinney'}
+{'user_time': '2008-09-18 18:20:46Z', 'user_id': '/users/9188/emmeff', 'user_name': 'EmmEff', 'vote_count': '374', 'edit_time': '2019-10-04 02:33:47Z', 'edit_id': '/users/7758804/trenton-mckinney', 'edit_name': 'Trenton McKinney'}
+{'user_time': '2010-02-12 10:15:34Z', 'user_id': '/users/68998/newtover', 'user_name': 'newtover', 'vote_count': '241', 'edit_time': '2019-11-29 21:46:11Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-18 01:37:24Z', 'user_id': '/users/3926/nimish', 'user_name': 'nimish', 'vote_count': '163', 'edit_time': '2018-06-03 17:10:00Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-18 01:42:30Z', 'user_id': '/users/6222/sirwart', 'user_name': 'sirwart', 'vote_count': '156', 'edit_time': '2020-02-24 01:01:46Z', 'edit_id': '/users/10908375/nicolas-gervais', 'edit_name': 'Nicolas Gervais'}
+{'user_time': '2008-09-18 01:37:49Z', 'user_id': '/users/16203/alexandra-franks', 'user_name': 'Alexandra Franks', 'vote_count': '150', 'edit_time': '2016-01-26 16:53:05Z', 'edit_id': '/users/1146608/patrick-m', 'edit_name': 'Patrick M'}
+{'user_time': '2016-10-29 14:02:50Z', 'user_id': '/users/5177604/tom-fuller', 'user_name': 'Tom Fuller', 'vote_count': '105', 'edit_time': '2017-05-28 23:14:34Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-03-13 00:12:54Z', 'user_id': '/users/361023/jorge-e-cardona', 'user_name': 'Jorge E. Cardona', 'vote_count': '78', 'edit_time': '2019-11-29 21:47:58Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '77', 'edit_time': '2019-11-29 21:54:25Z', 'edit_id': None, 'edit_name': None}
+{'user_time': '2010-10-07 07:09:04Z', 'user_id': '/users/463023/athanassis', 'user_name': 'athanassis', 'vote_count': '76', 'edit_time': '2017-05-28 23:02:27Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2011-04-28 20:29:29Z', 'user_id': '/users/181337/facundo-casco', 'user_name': 'Facundo Casco', 'vote_count': '74', 'edit_time': '2018-06-03 20:18:34Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-10-28 05:14:01Z', 'user_id': '/users/1755213/usman-khan', 'user_name': 'Usman Khan', 'vote_count': '58', 'edit_time': '2012-10-28 05:44:05Z', 'edit_id': '/users/1755213/usman-khan', 'edit_name': 'Usman Khan'}
+{'user_time': '2012-11-15 17:13:22Z', 'user_id': '/users/233098/joe', 'user_name': 'Joe', 'vote_count': '57', 'edit_time': '2019-11-29 21:52:33Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-18 01:43:30Z', 'user_id': '/users/4482/ben-hoffstein', 'user_name': 'Ben Hoffstein', 'vote_count': '47', 'edit_time': '2019-11-29 21:39:08Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-10-18 16:37:52Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '38', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2008-09-18 01:53:27Z', 'user_id': '/users/14199/martin-w', 'user_name': 'Martin W', 'vote_count': '37', 'edit_time': '2016-12-10 13:25:05Z', 'edit_id': '/users/4952130/dimitris-fasarakis-hilliard', 'edit_name': 'Dimitris Fasarakis Hilliard'}
+{'user_time': '2014-10-10 17:41:13Z', 'user_id': '/users/394370/stuckintheshuck', 'user_name': 'stuckintheshuck', 'vote_count': '34', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-04-30 13:47:17Z', 'user_id': '/users/6634322/samadi-salahedine', 'user_name': 'Samadi Salahedine', 'vote_count': '29', 'edit_time': '2018-06-08 12:06:53Z', 'edit_id': '/users/6634322/samadi-salahedine', 'edit_name': 'Samadi Salahedine'}
+{'user_time': '2015-06-29 11:34:22Z', 'user_id': '/users/2781812/priyankara', 'user_name': 'Priyankara', 'vote_count': '28', 'edit_time': '2017-05-28 23:05:23Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-08-13 18:36:32Z', 'user_id': '/users/605022/mdwhatcott', 'user_name': 'mdwhatcott', 'vote_count': '27', 'edit_time': '2019-11-29 21:49:06Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2010-01-08 21:11:30Z', 'user_id': '/users/246735/atinc-delican', 'user_name': 'Atinc Delican', 'vote_count': '24', 'edit_time': '2018-06-03 20:14:32Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-06-11 22:28:35Z', 'user_id': '/users/1449929/saurabh-bangad', 'user_name': 'Saurabh Bangad', 'vote_count': '24', 'edit_time': '2019-11-29 21:48:26Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2011-01-18 19:21:44Z', 'user_id': '/users/263998/cdunn2001', 'user_name': 'cdunn2001', 'vote_count': '22', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2014-04-30 14:37:04Z', 'user_id': '/users/117268/emil-stenstr%c3%b6m', 'user_name': 'Emil Stenström', 'vote_count': '22', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2014-05-01 20:49:01Z', 'user_id': '/users/929095/houqp', 'user_name': 'houqp', 'vote_count': '17', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-06-17 09:14:24Z', 'user_id': '/users/5397845/swadhikar', 'user_name': 'Swadhikar', 'vote_count': '17', 'edit_time': '2017-05-28 23:08:28Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-07-16 15:16:24Z', 'user_id': '/users/1417123/admire', 'user_name': 'admire', 'vote_count': '16', 'edit_time': '2017-05-28 23:01:49Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-07-20 09:50:01Z', 'user_id': '/users/3089950/irshad', 'user_name': 'IRSHAD', 'vote_count': '16', 'edit_time': '2019-11-29 22:05:32Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-11-27 00:15:34Z', 'user_id': '/users/2476373/yuval-atzmon', 'user_name': 'Yuval Atzmon', 'vote_count': '15', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+2020-12-10 03:09:54,916-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 273192
+title: How can I safely create a nested directory?
+asked: 2008-11-07T18:56:45
+active: 2020-10-28 06:13:45Z
+viewed: Viewed 2,780,529 times
+
+vote_count: 4503
+bookmark_count: 982
+tags: ['python', 'exception', 'path', 'directory', 'operating-system']
+
+owner_id: /users/13055/parand
+owner_name: Parand
+edited_time: 2019-05-16 08:51:26Z
+edited_id: /users/7851470/georgy
+edited_name: Georgy
+
+Answers: 27
+{'user_time': '2008-11-07 19:06:07Z', 'user_id': '/users/1199/blair-conrad', 'user_name': 'Blair Conrad', 'vote_count': '5573', 'edit_time': '2019-12-30 09:23:24Z', 'edit_id': '/users/3064538/boris', 'edit_name': 'Boris'}
+{'user_time': '2013-01-16 17:31:19Z', 'user_id': '/users/832230/acumenus', 'user_name': 'Acumenus', 'vote_count': '1298', 'edit_time': '2018-05-17 17:16:23Z', 'edit_id': '/users/832230/acumenus', 'edit_name': 'Acumenus'}
+{'user_time': '2011-02-17 17:17:25Z', 'user_id': '/users/62596/heikki-toivonen', 'user_name': 'Heikki Toivonen', 'vote_count': '614', 'edit_time': '2017-04-24 01:55:54Z', 'edit_id': '/users/2470818/vallentin', 'edit_name': 'vallentin'}
+{'user_time': '2009-01-14 17:57:32Z', 'user_id': None, 'user_name': None, 'vote_count': '109', 'edit_time': '2014-05-31 14:06:06Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-11-07 19:01:25Z', 'user_id': '/users/8458/douglas-mayle', 'user_name': 'Douglas Mayle', 'vote_count': '84', 'edit_time': '2019-05-16 12:15:39Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2016-12-14 16:06:09Z', 'user_id': '/users/4954037/hiro-protagonist', 'user_name': 'hiro protagonist', 'vote_count': '80', 'edit_time': '2020-10-28 06:13:45Z', 'edit_id': '/users/4954037/hiro-protagonist', 'edit_name': 'hiro protagonist'}
+{'user_time': '2015-01-22 23:49:18Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '48', 'edit_time': '2016-04-01 21:54:27Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2008-11-07 19:00:01Z', 'user_id': '/users/26880/gone', 'user_name': 'gone', 'vote_count': '36', 'edit_time': '2015-10-15 16:05:12Z', 'edit_id': '/users/1427800/jesterjunk', 'edit_name': 'jesterjunk'}
+{'user_time': '2008-11-07 21:23:03Z', 'user_id': '/users/28380/ali-afshar', 'user_name': 'Ali Afshar', 'vote_count': '33', 'edit_time': '2014-05-31 14:05:11Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-01-22 23:45:59Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '24', 'edit_time': '2017-07-07 03:19:31Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2015-03-11 20:50:01Z', 'user_id': '/users/918959/antti-haapala', 'user_name': 'Antti Haapala', 'vote_count': '20', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-01-03 22:33:47Z', 'user_id': '/users/3109254/euccas', 'user_name': 'euccas', 'vote_count': '15', 'edit_time': '2017-05-23 12:26:31Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2014-07-14 15:29:07Z', 'user_id': '/users/2258526/kavadias', 'user_name': 'kavadias', 'vote_count': '13', 'edit_time': '2017-12-31 03:12:48Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-03-29 15:50:53Z', 'user_id': '/users/2039736/tashuhka', 'user_name': 'tashuhka', 'vote_count': '13', 'edit_time': '2019-05-16 12:25:51Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2016-09-13 21:44:56Z', 'user_id': '/users/304209/dennis-golomazov', 'user_name': 'Dennis Golomazov', 'vote_count': '9', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-02-09 03:56:05Z', 'user_id': '/users/7424032/michael-strobel', 'user_name': 'Michael Strobel', 'vote_count': '8', 'edit_time': '2017-12-31 03:16:11Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-12-16 04:16:07Z', 'user_id': '/users/1904943/victoria-stuart', 'user_name': 'Victoria Stuart', 'vote_count': '7', 'edit_time': '2017-12-16 19:26:08Z', 'edit_id': '/users/1904943/victoria-stuart', 'edit_name': 'Victoria Stuart'}
+{'user_time': '2018-04-16 07:30:10Z', 'user_id': '/users/6559063/manivannan-murugavel', 'user_name': 'Manivannan Murugavel', 'vote_count': '7', 'edit_time': '2019-05-16 19:07:54Z', 'edit_id': '/users/6451573/jean-fran%c3%a7ois-fabre', 'edit_name': 'Jean-François Fabre'}
+{'user_time': '2018-09-11 18:23:57Z', 'user_id': '/users/4821206/geoff-paul-bremner', 'user_name': 'Geoff Paul Bremner', 'vote_count': '7', 'edit_time': '2019-05-16 19:37:30Z', 'edit_id': '/users/6451573/jean-fran%c3%a7ois-fabre', 'edit_name': 'Jean-François Fabre'}
+{'user_time': '2016-02-08 04:08:06Z', 'user_id': '/users/3051142/alissonmuller', 'user_name': 'alissonmuller', 'vote_count': '6', 'edit_time': '2017-12-31 03:14:29Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-06-08 12:52:46Z', 'user_id': '/users/5489173/iphynx', 'user_name': 'iPhynx', 'vote_count': '5', 'edit_time': '2017-09-30 12:31:13Z', 'edit_id': '/users/3448527/dippas', 'edit_name': 'dippas'}
+{'user_time': '2018-04-28 16:00:40Z', 'user_id': '/users/7245145/steffi-keran-rani-j', 'user_name': 'Steffi Keran Rani J', 'vote_count': '4', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-12-03 16:00:13Z', 'user_id': '/users/4606792/ralph-schwerdt', 'user_name': 'Ralph Schwerdt', 'vote_count': '3', 'edit_time': '2016-12-03 16:35:48Z', 'edit_id': '/users/4606792/ralph-schwerdt', 'edit_name': 'Ralph Schwerdt'}
+{'user_time': '2019-05-19 00:32:23Z', 'user_id': '/users/1627358/hussam-kurd', 'user_name': 'Hussam Kurd', 'vote_count': '3', 'edit_time': '2019-05-19 00:40:45Z', 'edit_id': '/users/1627358/hussam-kurd', 'edit_name': 'Hussam Kurd'}
+{'user_time': '2017-07-05 23:15:27Z', 'user_id': '/users/8067465/evil-exists', 'user_name': 'Evil Exists', 'vote_count': '0', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2020-09-10 03:39:26Z', 'user_id': '/users/3754430/sergiy-maksymenko', 'user_name': 'Sergiy Maksymenko', 'vote_count': '0', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2020-10-22 03:32:43Z', 'user_id': '/users/6729010/korakot', 'user_name': 'korakot', 'vote_count': '0', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+2020-12-10 03:10:01,550-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 522563
+title: Accessing the index in 'for' loops?
+asked: 2009-02-06T22:47:54
+active: 2020-10-25 16:42:53Z
+viewed: Viewed 2,310,603 times
+
+vote_count: 3859
+bookmark_count: 753
+tags: ['python', 'loops', 'list']
+
+owner_id: /users/51816/joan-venge
+owner_name: Joan Venge
+edited_time: 2019-09-20 12:19:54Z
+edited_id: /users/541136/aaron-hall
+edited_name: Aaron Hall
+
+Answers: 20
+{'user_time': '2009-02-06 22:52:36Z', 'user_id': '/users/19082/mike-hordecki', 'user_name': 'Mike Hordecki', 'vote_count': '6543', 'edit_time': '2016-09-17 10:13:51Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-01-21 17:11:49Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '861', 'edit_time': '2018-03-09 15:37:27Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2014-05-27 10:04:52Z', 'user_id': '/users/570826/a-j', 'user_name': 'A.J.', 'vote_count': '166', 'edit_time': '2020-10-06 18:24:00Z', 'edit_id': '/users/364696/shadowranger', 'edit_name': 'ShadowRanger'}
+{'user_time': '2009-02-06 22:49:23Z', 'user_id': '/users/42136/david-hanak', 'user_name': 'David Hanak', 'vote_count': '95', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-08-15 02:17:41Z', 'user_id': '/users/4670661/charitoo', 'user_name': 'Charitoo', 'vote_count': '49', 'edit_time': '2018-02-10 20:05:16Z', 'edit_id': '/users/1219006/jamylak', 'edit_name': 'jamylak'}
+{'user_time': '2009-02-06 22:52:06Z', 'user_id': '/users/35092/charlie-martin', 'user_name': 'Charlie Martin', 'vote_count': '30', 'edit_time': '2009-02-06 22:57:26Z', 'edit_id': '/users/35092/charlie-martin', 'edit_name': 'Charlie Martin'}
+{'user_time': '2016-08-04 09:49:50Z', 'user_id': '/users/2067976/andriy-ivaneyko', 'user_name': 'Andriy Ivaneyko', 'vote_count': '30', 'edit_time': '2020-06-20 09:12:55Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2015-05-25 15:08:34Z', 'user_id': '/users/4871483/ytpillai', 'user_name': 'ytpillai', 'vote_count': '14', 'edit_time': '2015-05-25 23:05:19Z', 'edit_id': '/users/224774/thorsten-s', 'edit_name': 'Thorsten S.'}
+{'user_time': '2019-01-17 01:07:23Z', 'user_id': '/users/6599590/andy-fedoroff', 'user_name': 'Andy Fedoroff', 'vote_count': '14', 'edit_time': '2020-06-20 09:12:55Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2012-05-05 07:10:07Z', 'user_id': '/users/842392/thinker007', 'user_name': 'thinker007', 'vote_count': '12', 'edit_time': '2019-05-22 14:29:33Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2015-05-25 15:26:58Z', 'user_id': '/users/4879665/liam', 'user_name': 'Liam', 'vote_count': '11', 'edit_time': '2015-05-26 10:39:28Z', 'edit_id': '/users/4879665/liam', 'edit_name': 'Liam'}
+{'user_time': '2017-08-24 06:15:31Z', 'user_id': '/users/6704115/anurag-misra', 'user_name': 'Anurag Misra', 'vote_count': '10', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-06-04 02:10:17Z', 'user_id': '/users/5181620/ankur-kothari', 'user_name': 'Ankur Kothari', 'vote_count': '10', 'edit_time': '2020-05-26 01:51:38Z', 'edit_id': '/users/2274035/so2', 'edit_name': 'so2'}
+{'user_time': '2018-08-15 17:52:50Z', 'user_id': '/users/4867193/drm', 'user_name': 'DrM', 'vote_count': '9', 'edit_time': '2019-05-22 15:10:43Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2018-06-10 03:59:43Z', 'user_id': '/users/5002508/rishu', 'user_name': 'RIshu', 'vote_count': '6', 'edit_time': '2019-05-22 15:02:28Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2018-02-07 14:04:10Z', 'user_id': '/users/8068733/ashok-kumar-jayaraman', 'user_name': 'Ashok Kumar Jayaraman', 'vote_count': '5', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-05-30 21:34:22Z', 'user_id': '/users/4139143/pyrsquared', 'user_name': 'PyRsquared', 'vote_count': '3', 'edit_time': '2018-05-31 06:09:09Z', 'edit_id': '/users/4139143/pyrsquared', 'edit_name': 'PyRsquared'}
+{'user_time': '2020-04-18 20:25:15Z', 'user_id': '/users/11183478/amar-kumar', 'user_name': 'Amar Kumar', 'vote_count': '3', 'edit_time': '2020-09-07 08:07:33Z', 'edit_id': '/users/1404076/kabirbaidhya', 'edit_name': 'kabirbaidhya'}
+{'user_time': '2018-04-24 10:53:56Z', 'user_id': '/users/9641084/lola', 'user_name': 'lola', 'vote_count': '1', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-04-24 10:45:29Z', 'user_id': '/users/4970413/sumit-kumar', 'user_name': 'Sumit Kumar', 'vote_count': '0', 'edit_time': '2018-05-15 05:41:27Z', 'edit_id': '/users/7065821/challenger5', 'edit_name': 'Challenger5'}
+2020-12-10 03:10:04,629-INFO-FILE:scraper.py-FUNC:get_faq-LINE:147-Scraping finished 10 questions collected
+2020-12-10 15:55:21,785-INFO-FILE:scraper.py-FUNC:__init__-LINE:327-Class initiation: <resources.scraper.StackOverflowScraper object at 0x000001DD85AE44C8>
+2020-12-10 15:55:21,786-INFO-FILE:scraper.py-FUNC:__init__-LINE:44-Class initiation: <resources.scraper.StackOverflowScraper object at 0x000001DD85AE44C8>, domain: https://stackoverflow.com
+2020-12-10 15:55:21,786-INFO-FILE:scraper.py-FUNC:get_faq-LINE:65-Getting the FAQ for: https://stackoverflow.com
+Tag: python
+2020-12-10 15:55:21,786-INFO-FILE:scraper.py-FUNC:get_faq-LINE:76-Requesting page 1: https://stackoverflow.com/questions/tagged/python?tab=votes&page=1&pagesize=50
+2020-12-10 15:55:22,579-INFO-FILE:scraper.py-FUNC:get_faq-LINE:82---> Status: 200
+2020-12-10 15:55:31,710-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 419163
+title: What does if __name__ == “__main__”: do?
+asked: 2009-01-07T04:11:00
+active: 2020-12-03 13:06:10Z
+viewed: Viewed 3,234,820 times
+
+vote_count: 6477
+bookmark_count: 2765
+tags: ['python', 'namespaces', 'main', 'python-module', 'idioms']
+
+owner_id: /users/51518/devoted
+owner_name: Devoted
+edited_time: 2020-02-26 21:04:44Z
+edited_id: /users/3739391/iliketocode
+edited_name: iliketocode
+
+Answers: 34
+{'user_time': '2009-01-07 04:26:43Z', 'user_id': '/users/25050/mr-fooz', 'user_name': 'Mr Fooz', 'vote_count': '7160', 'edit_time': '2020-09-11 23:22:52Z', 'edit_id': '/users/25050/mr-fooz', 'edit_name': 'Mr Fooz'}
+{'user_time': '2009-01-07 04:28:23Z', 'user_id': '/users/9530/adam-rosenfield', 'user_name': 'Adam Rosenfield', 'vote_count': '1886', 'edit_time': '2018-01-31 13:28:16Z', 'edit_id': '/users/6160119/tonechas', 'edit_name': 'Tonechas'}
+{'user_time': '2009-01-07 11:35:17Z', 'user_id': '/users/15274/pi', 'user_name': 'pi.', 'vote_count': '745', 'edit_time': '2018-12-18 09:25:19Z', 'edit_id': '/users/15274/pi', 'edit_name': 'pi.'}
+{'user_time': '2013-11-23 04:38:25Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '523', 'edit_time': '2018-03-27 02:27:47Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2009-01-07 04:14:23Z', 'user_id': '/users/1057/harley-holcombe', 'user_name': 'Harley Holcombe', 'vote_count': '130', 'edit_time': '2015-07-10 15:49:13Z', 'edit_id': '/users/1709587/mark-amery', 'edit_name': 'Mark Amery'}
+{'user_time': '2014-10-14 20:22:55Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '84', 'edit_time': '2017-01-10 17:35:04Z', 'edit_id': '/users/271697/coffee-grinder', 'edit_name': 'coffee-grinder'}
+{'user_time': '2016-09-29 04:33:07Z', 'user_id': '/users/6833793/joechoj', 'user_name': 'joechoj', 'vote_count': '73', 'edit_time': '2018-05-23 22:29:32Z', 'edit_id': '/users/6833793/joechoj', 'edit_name': 'joechoj'}
+{'user_time': '2013-04-03 14:09:11Z', 'user_id': '/users/1384641/nabeel-ahmed', 'user_name': 'Nabeel Ahmed', 'vote_count': '53', 'edit_time': '2018-05-23 22:07:29Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-10-15 09:07:42Z', 'user_id': '/users/3104473/redbandit', 'user_name': 'redbandit', 'vote_count': '46', 'edit_time': '2018-05-23 22:28:19Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-01-20 17:48:56Z', 'user_id': '/users/2961878/alisa', 'user_name': 'Alisa', 'vote_count': '42', 'edit_time': '2020-05-27 10:50:24Z', 'edit_id': '/users/2115079/kubuntu', 'edit_name': 'kubuntu'}
+{'user_time': '2013-12-11 11:23:53Z', 'user_id': '/users/1803858/zain', 'user_name': 'Zain', 'vote_count': '36', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-08-22 18:53:15Z', 'user_id': '/users/7201349/larry', 'user_name': 'Larry', 'vote_count': '34', 'edit_time': '2018-05-23 22:31:42Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-04-03 19:32:56Z', 'user_id': '/users/8372104/simon', 'user_name': 'Simon', 'vote_count': '29', 'edit_time': '2018-05-23 22:39:09Z', 'edit_id': '/users/8372104/simon', 'edit_name': 'Simon'}
+{'user_time': '2016-11-30 06:47:44Z', 'user_id': '/users/5401681/inconnu', 'user_name': 'Inconnu', 'vote_count': '27', 'edit_time': '2018-05-23 22:30:36Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-06-24 15:48:36Z', 'user_id': '/users/8932910/jack', 'user_name': 'jack', 'vote_count': '27', 'edit_time': '2020-08-09 22:19:52Z', 'edit_id': '/users/8932910/jack', 'edit_name': 'jack'}
+{'user_time': '2013-01-24 13:48:38Z', 'user_id': '/users/193892/prof-falken', 'user_name': 'Prof. Falken', 'vote_count': '24', 'edit_time': '2018-09-03 07:05:11Z', 'edit_id': '/users/193892/prof-falken', 'edit_name': 'Prof. Falken'}
+{'user_time': '2015-11-25 12:26:57Z', 'user_id': '/users/5417963/codewizard', 'user_name': 'codewizard', 'vote_count': '20', 'edit_time': '2016-07-20 09:30:24Z', 'edit_id': '/users/5417963/codewizard', 'edit_name': 'codewizard'}
+{'user_time': '2016-04-24 08:23:01Z', 'user_id': '/users/5866942/the-gr8-adakron', 'user_name': 'The Gr8 Adakron', 'vote_count': '19', 'edit_time': '2018-05-23 22:14:07Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-03-13 21:44:26Z', 'user_id': '/users/3927314/kgf3jfutw', 'user_name': 'kgf3JfUtW', 'vote_count': '16', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-06-22 10:47:06Z', 'user_id': '/users/5064153/janarthanan-ramu', 'user_name': 'Janarthanan Ramu', 'vote_count': '16', 'edit_time': '2019-02-06 23:16:06Z', 'edit_id': '/users/4217744/simhumileco', 'edit_name': 'simhumileco'}
+{'user_time': '2020-02-01 13:26:02Z', 'user_id': '/users/7131757/giorgos-myrianthous', 'user_name': 'Giorgos Myrianthous', 'vote_count': '16', 'edit_time': '2020-12-03 13:06:10Z', 'edit_id': '/users/7131757/giorgos-myrianthous', 'edit_name': 'Giorgos Myrianthous'}
+{'user_time': '2017-09-22 18:32:24Z', 'user_id': '/users/5896591/personal-cloud', 'user_name': 'personal_cloud', 'vote_count': '15', 'edit_time': '2018-04-18 21:05:59Z', 'edit_id': '/users/5896591/personal-cloud', 'edit_name': 'personal_cloud'}
+{'user_time': '2019-06-12 09:28:39Z', 'user_id': '/users/8930395/rishi-bansal', 'user_name': 'Rishi Bansal', 'vote_count': '11', 'edit_time': '2019-12-23 23:43:52Z', 'edit_id': '/users/463213/charlesreid1', 'edit_name': 'charlesreid1'}
+{'user_time': '2018-10-07 04:52:46Z', 'user_id': '/users/1952852/raja', 'user_name': 'Raja', 'vote_count': '10', 'edit_time': '2018-10-18 03:09:32Z', 'edit_id': '/users/6622587/eyllanesc', 'edit_name': 'eyllanesc'}
+{'user_time': '2018-06-19 11:44:29Z', 'user_id': '/users/9364854/pah8j', 'user_name': 'pah8J', 'vote_count': '6', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2019-07-30 16:22:15Z', 'user_id': '/users/9716545/nikil-munireddy', 'user_name': 'Nikil Munireddy', 'vote_count': '5', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-04-04 14:32:34Z', 'user_id': '/users/3043331/ali-hallaji', 'user_name': 'Ali Hallaji', 'vote_count': '4', 'edit_time': '2018-05-23 22:36:51Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-05-04 08:25:42Z', 'user_id': '/users/6453817/preetika-mondal', 'user_name': 'preetika mondal', 'vote_count': '4', 'edit_time': '2018-05-23 22:38:56Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-01-08 15:24:38Z', 'user_id': '/users/8865579/dark-c0d3r', 'user_name': 'DARK_C0D3R', 'vote_count': '3', 'edit_time': '2018-05-23 22:34:14Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2020-04-27 12:12:54Z', 'user_id': '/users/12168946/reinstate-c0mmunism', 'user_name': 'Reinstate C0MMUNiSM', 'vote_count': '3', 'edit_time': '2020-05-12 15:55:56Z', 'edit_id': '/users/9654083/thetechrobo36414519', 'edit_name': 'TheTechRobo36414519'}
+2020-12-10 15:55:34,767-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 394809
+title: Does Python have a ternary conditional operator?
+asked: 2008-12-27T08:32:18
+active: 2020-12-09 15:17:41Z
+viewed: Viewed 2,030,261 times
+
+vote_count: 6371
+bookmark_count: 930
+tags: ['python', 'operators', 'ternary-operator', 'conditional-operator']
+
+owner_id: None
+owner_name: None
+edited_time: 2019-08-09 14:12:26Z
+edited_id: None
+edited_name: None
+
+Answers: 27
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '7389', 'edit_time': '2020-08-05 23:52:14Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '835', 'edit_time': '2015-10-17 07:35:10Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '360', 'edit_time': '2014-01-13 07:16:48Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '285', 'edit_time': '2019-05-15 15:03:41Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '166', 'edit_time': '2015-10-17 07:43:53Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '126', 'edit_time': '2017-08-07 14:22:32Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '100', 'edit_time': '2019-05-09 09:45:33Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '75', 'edit_time': '2019-01-26 14:05:18Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '63', 'edit_time': '2012-04-25 12:02:06Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '44', 'edit_time': '2013-01-14 15:56:09Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '38', 'edit_time': '2016-08-08 18:56:31Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '23', 'edit_time': '2013-11-20 10:44:12Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '21', 'edit_time': '2018-04-04 14:02:17Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '20', 'edit_time': '2018-12-06 14:45:27Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '19', 'edit_time': '2020-06-20 09:12:55Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '19', 'edit_time': '2020-02-22 13:03:35Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '18', 'edit_time': '2016-05-23 19:16:26Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '11', 'edit_time': '2019-10-16 08:37:26Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '10', 'edit_time': '2019-01-04 22:02:14Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '7', 'edit_time': '2018-10-21 20:46:34Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '4', 'edit_time': '2020-10-22 14:04:12Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '2', 'edit_time': '2020-03-15 06:42:19Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '0', 'edit_time': '2020-12-09 15:17:41Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-1', 'edit_time': '2020-03-26 21:59:43Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-2', 'edit_time': '2018-04-26 16:22:58Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-2', 'edit_time': '2019-05-12 13:03:48Z', 'edit_id': None, 'edit_name': None}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '-3', 'edit_time': '2019-10-23 07:22:58Z', 'edit_id': None, 'edit_name': None}
+2020-12-10 15:55:45,275-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 82831
+title: How do I check whether a file exists without exceptions?
+asked: 2008-09-17T12:55:00
+active: 2020-10-29 04:34:07Z
+viewed: Viewed 4,122,724 times
+
+vote_count: 5884
+bookmark_count: 970
+tags: ['python', 'file', 'file-exists']
+
+owner_id: /users/15616/spence91
+owner_name: spence91
+edited_time: 2020-05-04 19:28:02Z
+edited_id: /users/3739391/iliketocode
+edited_name: iliketocode
+
+Answers: 39
+{'user_time': '2008-09-17 12:57:51Z', 'user_id': '/users/15682/rslite', 'user_name': 'rslite', 'vote_count': '5414', 'edit_time': '2019-05-13 10:40:43Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2008-09-17 12:57:08Z', 'user_id': '/users/7136/pierrebdr', 'user_name': 'PierreBdR', 'vote_count': '2227', 'edit_time': '2018-10-19 08:58:59Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2008-09-17 15:01:14Z', 'user_id': '/users/15625/bortzmeyer', 'user_name': 'bortzmeyer', 'vote_count': '1032', 'edit_time': '2020-03-03 17:45:09Z', 'edit_id': '/users/3064538/boris', 'edit_name': 'Boris'}
+{'user_time': '2008-09-17 12:55:48Z', 'user_id': '/users/215086/paul', 'user_name': 'Paul', 'vote_count': '657', 'edit_time': '2017-06-21 20:33:46Z', 'edit_id': '/users/494074/ankur-agarwal', 'edit_name': 'Ankur Agarwal'}
+{'user_time': '2012-01-16 05:57:12Z', 'user_id': '/users/731963/yugal-jindle', 'user_name': 'Yugal Jindle', 'vote_count': '374', 'edit_time': '2020-03-26 11:35:27Z', 'edit_id': '/users/7871601/null', 'edit_name': 'null'}
+{'user_time': '2008-09-17 12:56:22Z', 'user_id': '/users/6445/benefactual', 'user_name': 'benefactual', 'vote_count': '308', 'edit_time': '2018-06-02 20:52:01Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-06-20 19:28:07Z', 'user_id': '/users/4788546/cristifati', 'user_name': 'CristiFati', 'vote_count': '255', 'edit_time': '2019-02-08 09:36:33Z', 'edit_id': '/users/4788546/cristifati', 'edit_name': 'CristiFati'}
+{'user_time': '2014-02-08 02:38:42Z', 'user_id': '/users/1612701/cody-piersall', 'user_name': 'Cody Piersall', 'vote_count': '181', 'edit_time': '2020-09-12 04:42:15Z', 'edit_id': '/users/1217270/honest-abe', 'edit_name': 'Honest Abe'}
+{'user_time': '2013-06-27 13:38:04Z', 'user_id': '/users/103734/un33k', 'user_name': 'un33k', 'vote_count': '158', 'edit_time': '2018-01-14 04:07:53Z', 'edit_id': '/users/2069807/mrwonderful', 'edit_name': 'MrWonderful'}
+{'user_time': '2009-11-04 00:48:06Z', 'user_id': '/users/5128/pkoch', 'user_name': 'pkoch', 'vote_count': '129', 'edit_time': '2014-04-28 01:01:59Z', 'edit_id': '/users/1217270/honest-abe', 'edit_name': 'Honest Abe'}
+{'user_time': '2015-08-11 03:54:25Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '125', 'edit_time': '2018-02-25 20:45:39Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2015-05-25 18:29:22Z', 'user_id': '/users/4141689/karlgzafiris', 'user_name': 'karlgzafiris', 'vote_count': '89', 'edit_time': '2017-05-16 16:36:46Z', 'edit_id': '/users/4141689/karlgzafiris', 'edit_name': 'karlgzafiris'}
+{'user_time': '2016-10-08 12:43:02Z', 'user_id': '/users/5177604/tom-fuller', 'user_name': 'Tom Fuller', 'vote_count': '88', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-02-24 12:44:10Z', 'user_id': '/users/5968477/kaibuxe', 'user_name': 'KaiBuxe', 'vote_count': '75', 'edit_time': '2017-05-27 01:00:22Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2013-09-25 01:52:46Z', 'user_id': '/users/225730/chad', 'user_name': 'chad', 'vote_count': '68', 'edit_time': '2015-08-25 03:12:24Z', 'edit_id': '/users/225730/chad', 'edit_name': 'chad'}
+{'user_time': '2011-01-25 23:00:01Z', 'user_id': '/users/589765/philberndt', 'user_name': 'philberndt', 'vote_count': '61', 'edit_time': '2017-05-27 00:43:51Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-12-04 08:51:49Z', 'user_id': '/users/7301792/calculus', 'user_name': 'Calculus', 'vote_count': '53', 'edit_time': '2018-12-23 10:46:13Z', 'edit_id': '/users/5997596/azat-ibrakov', 'edit_name': 'Azat Ibrakov'}
+{'user_time': '2014-12-26 20:05:32Z', 'user_id': '/users/4293417/zizouz212', 'user_name': 'Zizouz212', 'vote_count': '52', 'edit_time': '2017-05-27 00:52:18Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-17 13:13:31Z', 'user_id': '/users/12138/zgoda', 'user_name': 'zgoda', 'vote_count': '38', 'edit_time': '2016-05-04 15:24:02Z', 'edit_id': '/users/2868335/armatita', 'edit_name': 'armatita'}
+{'user_time': '2014-10-13 07:45:16Z', 'user_id': '/users/2843583/bergercookie', 'user_name': 'bergercookie', 'vote_count': '38', 'edit_time': '2020-02-21 13:28:05Z', 'edit_id': '/users/5695374/tshilidzi-mudau', 'edit_name': 'Tshilidzi Mudau'}
+{'user_time': '2015-04-28 02:45:31Z', 'user_id': '/users/797495/pedro-lobito', 'user_name': 'Pedro Lobito', 'vote_count': '20', 'edit_time': '2015-07-18 17:41:08Z', 'edit_id': '/users/797495/pedro-lobito', 'edit_name': 'Pedro Lobito'}
+{'user_time': '2017-08-10 05:50:16Z', 'user_id': '/users/6291574/durjoy', 'user_name': 'durjoy', 'vote_count': '20', 'edit_time': '2018-09-01 01:00:51Z', 'edit_id': '/users/1896134/jayrizzo', 'edit_name': 'JayRizzo'}
+{'user_time': '2014-02-10 21:30:20Z', 'user_id': '/users/476266/chris', 'user_name': 'Chris', 'vote_count': '18', 'edit_time': '2017-05-27 00:48:31Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2018-03-04 06:24:37Z', 'user_id': '/users/3043331/ali-hallaji', 'user_name': 'Ali Hallaji', 'vote_count': '17', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-08-05 15:54:37Z', 'user_id': '/users/2532408/marcel-wilson', 'user_name': 'Marcel Wilson', 'vote_count': '16', 'edit_time': '2017-04-07 16:10:59Z', 'edit_id': '/users/2532408/marcel-wilson', 'edit_name': 'Marcel Wilson'}
+{'user_time': '2016-05-05 12:00:42Z', 'user_id': '/users/2379433/mike-mckerns', 'user_name': 'Mike McKerns', 'vote_count': '16', 'edit_time': '2017-05-27 00:59:52Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-08-29 16:15:29Z', 'user_id': '/users/601770/love-and-peace-joe-codeswell', 'user_name': 'Love and peace - Joe Codeswell', 'vote_count': '15', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2014-12-20 15:21:40Z', 'user_id': '/users/2230891/pradip-das', 'user_name': 'Pradip Das', 'vote_count': '12', 'edit_time': '2017-05-27 00:49:25Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-12-02 06:39:08Z', 'user_id': '/users/5401681/inconnu', 'user_name': 'Inconnu', 'vote_count': '12', 'edit_time': '2017-05-27 00:57:43Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-08-05 06:28:27Z', 'user_id': '/users/2128327/khaled-k', 'user_name': 'Khaled.K', 'vote_count': '9', 'edit_time': '2015-10-08 21:22:53Z', 'edit_id': '/users/2397850/bubble', 'edit_name': 'bubble'}
+2020-12-10 15:56:00,143-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 89228
+title: How to call an external command?
+asked: 2008-09-18T01:35:30
+active: 2020-11-15 03:27:21Z
+viewed: Viewed 3,550,575 times
+
+vote_count: 5102
+bookmark_count: 1559
+tags: ['python', 'shell', 'terminal', 'subprocess', 'command']
+
+owner_id: /users/17085/freshwower
+owner_name: freshWoWer
+edited_time: 2020-08-24 12:25:41Z
+edited_id: /users/355230/martineau
+edited_name: martineau
+
+Answers: 62
+{'user_time': '2008-09-18 01:39:35Z', 'user_id': '/users/11465/david-cournapeau', 'user_name': 'David Cournapeau', 'vote_count': '4897', 'edit_time': '2020-11-15 03:27:21Z', 'edit_id': '/users/7389107/szymon-bednorz', 'edit_name': 'Szymon Bednorz'}
+{'user_time': '2008-09-18 13:11:46Z', 'user_id': '/users/1694/eli-courtwright', 'user_name': 'Eli Courtwright', 'vote_count': '3057', 'edit_time': '2019-10-04 02:34:49Z', 'edit_id': '/users/7758804/trenton-mckinney', 'edit_name': 'Trenton McKinney'}
+{'user_time': '2008-09-18 18:20:46Z', 'user_id': '/users/9188/emmeff', 'user_name': 'EmmEff', 'vote_count': '374', 'edit_time': '2019-10-04 02:33:47Z', 'edit_id': '/users/7758804/trenton-mckinney', 'edit_name': 'Trenton McKinney'}
+{'user_time': '2010-02-12 10:15:34Z', 'user_id': '/users/68998/newtover', 'user_name': 'newtover', 'vote_count': '241', 'edit_time': '2019-11-29 21:46:11Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-18 01:37:24Z', 'user_id': '/users/3926/nimish', 'user_name': 'nimish', 'vote_count': '163', 'edit_time': '2018-06-03 17:10:00Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-18 01:42:30Z', 'user_id': '/users/6222/sirwart', 'user_name': 'sirwart', 'vote_count': '156', 'edit_time': '2020-02-24 01:01:46Z', 'edit_id': '/users/10908375/nicolas-gervais', 'edit_name': 'Nicolas Gervais'}
+{'user_time': '2008-09-18 01:37:49Z', 'user_id': '/users/16203/alexandra-franks', 'user_name': 'Alexandra Franks', 'vote_count': '150', 'edit_time': '2016-01-26 16:53:05Z', 'edit_id': '/users/1146608/patrick-m', 'edit_name': 'Patrick M'}
+{'user_time': '2016-10-29 14:02:50Z', 'user_id': '/users/5177604/tom-fuller', 'user_name': 'Tom Fuller', 'vote_count': '105', 'edit_time': '2017-05-28 23:14:34Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-03-13 00:12:54Z', 'user_id': '/users/361023/jorge-e-cardona', 'user_name': 'Jorge E. Cardona', 'vote_count': '78', 'edit_time': '2019-11-29 21:47:58Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': None, 'user_id': None, 'user_name': None, 'vote_count': '77', 'edit_time': '2019-11-29 21:54:25Z', 'edit_id': None, 'edit_name': None}
+{'user_time': '2010-10-07 07:09:04Z', 'user_id': '/users/463023/athanassis', 'user_name': 'athanassis', 'vote_count': '76', 'edit_time': '2017-05-28 23:02:27Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2011-04-28 20:29:29Z', 'user_id': '/users/181337/facundo-casco', 'user_name': 'Facundo Casco', 'vote_count': '74', 'edit_time': '2018-06-03 20:18:34Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-10-28 05:14:01Z', 'user_id': '/users/1755213/usman-khan', 'user_name': 'Usman Khan', 'vote_count': '58', 'edit_time': '2012-10-28 05:44:05Z', 'edit_id': '/users/1755213/usman-khan', 'edit_name': 'Usman Khan'}
+{'user_time': '2012-11-15 17:13:22Z', 'user_id': '/users/233098/joe', 'user_name': 'Joe', 'vote_count': '57', 'edit_time': '2019-11-29 21:52:33Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-09-18 01:43:30Z', 'user_id': '/users/4482/ben-hoffstein', 'user_name': 'Ben Hoffstein', 'vote_count': '47', 'edit_time': '2019-11-29 21:39:08Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-10-18 16:37:52Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '38', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2008-09-18 01:53:27Z', 'user_id': '/users/14199/martin-w', 'user_name': 'Martin W', 'vote_count': '37', 'edit_time': '2016-12-10 13:25:05Z', 'edit_id': '/users/4952130/dimitris-fasarakis-hilliard', 'edit_name': 'Dimitris Fasarakis Hilliard'}
+{'user_time': '2014-10-10 17:41:13Z', 'user_id': '/users/394370/stuckintheshuck', 'user_name': 'stuckintheshuck', 'vote_count': '34', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-04-30 13:47:17Z', 'user_id': '/users/6634322/samadi-salahedine', 'user_name': 'Samadi Salahedine', 'vote_count': '29', 'edit_time': '2018-06-08 12:06:53Z', 'edit_id': '/users/6634322/samadi-salahedine', 'edit_name': 'Samadi Salahedine'}
+{'user_time': '2015-06-29 11:34:22Z', 'user_id': '/users/2781812/priyankara', 'user_name': 'Priyankara', 'vote_count': '28', 'edit_time': '2017-05-28 23:05:23Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-08-13 18:36:32Z', 'user_id': '/users/605022/mdwhatcott', 'user_name': 'mdwhatcott', 'vote_count': '27', 'edit_time': '2019-11-29 21:49:06Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2010-01-08 21:11:30Z', 'user_id': '/users/246735/atinc-delican', 'user_name': 'Atinc Delican', 'vote_count': '24', 'edit_time': '2018-06-03 20:14:32Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-06-11 22:28:35Z', 'user_id': '/users/1449929/saurabh-bangad', 'user_name': 'Saurabh Bangad', 'vote_count': '24', 'edit_time': '2019-11-29 21:48:26Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2011-01-18 19:21:44Z', 'user_id': '/users/263998/cdunn2001', 'user_name': 'cdunn2001', 'vote_count': '22', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2014-04-30 14:37:04Z', 'user_id': '/users/117268/emil-stenstr%c3%b6m', 'user_name': 'Emil Stenström', 'vote_count': '22', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2014-05-01 20:49:01Z', 'user_id': '/users/929095/houqp', 'user_name': 'houqp', 'vote_count': '17', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-06-17 09:14:24Z', 'user_id': '/users/5397845/swadhikar', 'user_name': 'Swadhikar', 'vote_count': '17', 'edit_time': '2017-05-28 23:08:28Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2012-07-16 15:16:24Z', 'user_id': '/users/1417123/admire', 'user_name': 'admire', 'vote_count': '16', 'edit_time': '2017-05-28 23:01:49Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-07-20 09:50:01Z', 'user_id': '/users/3089950/irshad', 'user_name': 'IRSHAD', 'vote_count': '16', 'edit_time': '2019-11-29 22:05:32Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-11-27 00:15:34Z', 'user_id': '/users/2476373/yuval-atzmon', 'user_name': 'Yuval Atzmon', 'vote_count': '15', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+2020-12-10 15:56:03,113-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 273192
+title: How can I safely create a nested directory?
+asked: 2008-11-07T18:56:45
+active: 2020-10-28 06:13:45Z
+viewed: Viewed 2,781,084 times
+
+vote_count: 4503
+bookmark_count: 982
+tags: ['python', 'exception', 'path', 'directory', 'operating-system']
+
+owner_id: /users/13055/parand
+owner_name: Parand
+edited_time: 2019-05-16 08:51:26Z
+edited_id: /users/7851470/georgy
+edited_name: Georgy
+
+Answers: 27
+{'user_time': '2008-11-07 19:06:07Z', 'user_id': '/users/1199/blair-conrad', 'user_name': 'Blair Conrad', 'vote_count': '5574', 'edit_time': '2019-12-30 09:23:24Z', 'edit_id': '/users/3064538/boris', 'edit_name': 'Boris'}
+{'user_time': '2013-01-16 17:31:19Z', 'user_id': '/users/832230/acumenus', 'user_name': 'Acumenus', 'vote_count': '1298', 'edit_time': '2018-05-17 17:16:23Z', 'edit_id': '/users/832230/acumenus', 'edit_name': 'Acumenus'}
+{'user_time': '2011-02-17 17:17:25Z', 'user_id': '/users/62596/heikki-toivonen', 'user_name': 'Heikki Toivonen', 'vote_count': '614', 'edit_time': '2017-04-24 01:55:54Z', 'edit_id': '/users/2470818/vallentin', 'edit_name': 'vallentin'}
+{'user_time': '2009-01-14 17:57:32Z', 'user_id': None, 'user_name': None, 'vote_count': '109', 'edit_time': '2014-05-31 14:06:06Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2008-11-07 19:01:25Z', 'user_id': '/users/8458/douglas-mayle', 'user_name': 'Douglas Mayle', 'vote_count': '84', 'edit_time': '2019-05-16 12:15:39Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2016-12-14 16:06:09Z', 'user_id': '/users/4954037/hiro-protagonist', 'user_name': 'hiro protagonist', 'vote_count': '80', 'edit_time': '2020-10-28 06:13:45Z', 'edit_id': '/users/4954037/hiro-protagonist', 'edit_name': 'hiro protagonist'}
+{'user_time': '2015-01-22 23:49:18Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '48', 'edit_time': '2016-04-01 21:54:27Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2008-11-07 19:00:01Z', 'user_id': '/users/26880/gone', 'user_name': 'gone', 'vote_count': '36', 'edit_time': '2015-10-15 16:05:12Z', 'edit_id': '/users/1427800/jesterjunk', 'edit_name': 'jesterjunk'}
+{'user_time': '2008-11-07 21:23:03Z', 'user_id': '/users/28380/ali-afshar', 'user_name': 'Ali Afshar', 'vote_count': '33', 'edit_time': '2014-05-31 14:05:11Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-01-22 23:45:59Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '24', 'edit_time': '2017-07-07 03:19:31Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2015-03-11 20:50:01Z', 'user_id': '/users/918959/antti-haapala', 'user_name': 'Antti Haapala', 'vote_count': '20', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-01-03 22:33:47Z', 'user_id': '/users/3109254/euccas', 'user_name': 'euccas', 'vote_count': '15', 'edit_time': '2017-05-23 12:26:31Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2014-07-14 15:29:07Z', 'user_id': '/users/2258526/kavadias', 'user_name': 'kavadias', 'vote_count': '13', 'edit_time': '2017-12-31 03:12:48Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-03-29 15:50:53Z', 'user_id': '/users/2039736/tashuhka', 'user_name': 'tashuhka', 'vote_count': '13', 'edit_time': '2019-05-16 12:25:51Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2016-09-13 21:44:56Z', 'user_id': '/users/304209/dennis-golomazov', 'user_name': 'Dennis Golomazov', 'vote_count': '9', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-02-09 03:56:05Z', 'user_id': '/users/7424032/michael-strobel', 'user_name': 'Michael Strobel', 'vote_count': '8', 'edit_time': '2017-12-31 03:16:11Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2017-12-16 04:16:07Z', 'user_id': '/users/1904943/victoria-stuart', 'user_name': 'Victoria Stuart', 'vote_count': '7', 'edit_time': '2017-12-16 19:26:08Z', 'edit_id': '/users/1904943/victoria-stuart', 'edit_name': 'Victoria Stuart'}
+{'user_time': '2018-04-16 07:30:10Z', 'user_id': '/users/6559063/manivannan-murugavel', 'user_name': 'Manivannan Murugavel', 'vote_count': '7', 'edit_time': '2019-05-16 19:07:54Z', 'edit_id': '/users/6451573/jean-fran%c3%a7ois-fabre', 'edit_name': 'Jean-François Fabre'}
+{'user_time': '2018-09-11 18:23:57Z', 'user_id': '/users/4821206/geoff-paul-bremner', 'user_name': 'Geoff Paul Bremner', 'vote_count': '7', 'edit_time': '2019-05-16 19:37:30Z', 'edit_id': '/users/6451573/jean-fran%c3%a7ois-fabre', 'edit_name': 'Jean-François Fabre'}
+{'user_time': '2016-02-08 04:08:06Z', 'user_id': '/users/3051142/alissonmuller', 'user_name': 'alissonmuller', 'vote_count': '6', 'edit_time': '2017-12-31 03:14:29Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2016-06-08 12:52:46Z', 'user_id': '/users/5489173/iphynx', 'user_name': 'iPhynx', 'vote_count': '5', 'edit_time': '2017-09-30 12:31:13Z', 'edit_id': '/users/3448527/dippas', 'edit_name': 'dippas'}
+{'user_time': '2018-04-28 16:00:40Z', 'user_id': '/users/7245145/steffi-keran-rani-j', 'user_name': 'Steffi Keran Rani J', 'vote_count': '4', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2016-12-03 16:00:13Z', 'user_id': '/users/4606792/ralph-schwerdt', 'user_name': 'Ralph Schwerdt', 'vote_count': '3', 'edit_time': '2016-12-03 16:35:48Z', 'edit_id': '/users/4606792/ralph-schwerdt', 'edit_name': 'Ralph Schwerdt'}
+{'user_time': '2019-05-19 00:32:23Z', 'user_id': '/users/1627358/hussam-kurd', 'user_name': 'Hussam Kurd', 'vote_count': '3', 'edit_time': '2019-05-19 00:40:45Z', 'edit_id': '/users/1627358/hussam-kurd', 'edit_name': 'Hussam Kurd'}
+{'user_time': '2017-07-05 23:15:27Z', 'user_id': '/users/8067465/evil-exists', 'user_name': 'Evil Exists', 'vote_count': '0', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2020-09-10 03:39:26Z', 'user_id': '/users/3754430/sergiy-maksymenko', 'user_name': 'Sergiy Maksymenko', 'vote_count': '0', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2020-10-22 03:32:43Z', 'user_id': '/users/6729010/korakot', 'user_name': 'korakot', 'vote_count': '0', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+2020-12-10 15:56:09,204-INFO-FILE:scraper.py-FUNC:get_faq-LINE:128-Question: 522563
+title: Accessing the index in 'for' loops?
+asked: 2009-02-06T22:47:54
+active: 2020-10-25 16:42:53Z
+viewed: Viewed 2,311,291 times
+
+vote_count: 3861
+bookmark_count: 753
+tags: ['python', 'loops', 'list']
+
+owner_id: /users/51816/joan-venge
+owner_name: Joan Venge
+edited_time: 2019-09-20 12:19:54Z
+edited_id: /users/541136/aaron-hall
+edited_name: Aaron Hall
+
+Answers: 20
+{'user_time': '2009-02-06 22:52:36Z', 'user_id': '/users/19082/mike-hordecki', 'user_name': 'Mike Hordecki', 'vote_count': '6544', 'edit_time': '2016-09-17 10:13:51Z', 'edit_id': '/users/63550/peter-mortensen', 'edit_name': 'Peter Mortensen'}
+{'user_time': '2015-01-21 17:11:49Z', 'user_id': '/users/541136/aaron-hall', 'user_name': 'Aaron Hall', 'vote_count': '861', 'edit_time': '2018-03-09 15:37:27Z', 'edit_id': '/users/541136/aaron-hall', 'edit_name': 'Aaron Hall'}
+{'user_time': '2014-05-27 10:04:52Z', 'user_id': '/users/570826/a-j', 'user_name': 'A.J.', 'vote_count': '166', 'edit_time': '2020-10-06 18:24:00Z', 'edit_id': '/users/364696/shadowranger', 'edit_name': 'ShadowRanger'}
+{'user_time': '2009-02-06 22:49:23Z', 'user_id': '/users/42136/david-hanak', 'user_name': 'David Hanak', 'vote_count': '95', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2017-08-15 02:17:41Z', 'user_id': '/users/4670661/charitoo', 'user_name': 'Charitoo', 'vote_count': '49', 'edit_time': '2018-02-10 20:05:16Z', 'edit_id': '/users/1219006/jamylak', 'edit_name': 'jamylak'}
+{'user_time': '2009-02-06 22:52:06Z', 'user_id': '/users/35092/charlie-martin', 'user_name': 'Charlie Martin', 'vote_count': '30', 'edit_time': '2009-02-06 22:57:26Z', 'edit_id': '/users/35092/charlie-martin', 'edit_name': 'Charlie Martin'}
+{'user_time': '2016-08-04 09:49:50Z', 'user_id': '/users/2067976/andriy-ivaneyko', 'user_name': 'Andriy Ivaneyko', 'vote_count': '30', 'edit_time': '2020-06-20 09:12:55Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2015-05-25 15:08:34Z', 'user_id': '/users/4871483/ytpillai', 'user_name': 'ytpillai', 'vote_count': '14', 'edit_time': '2015-05-25 23:05:19Z', 'edit_id': '/users/224774/thorsten-s', 'edit_name': 'Thorsten S.'}
+{'user_time': '2019-01-17 01:07:23Z', 'user_id': '/users/6599590/andy-fedoroff', 'user_name': 'Andy Fedoroff', 'vote_count': '14', 'edit_time': '2020-06-20 09:12:55Z', 'edit_id': '/users/-1/community', 'edit_name': 'Community'}
+{'user_time': '2012-05-05 07:10:07Z', 'user_id': '/users/842392/thinker007', 'user_name': 'thinker007', 'vote_count': '12', 'edit_time': '2019-05-22 14:29:33Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2015-05-25 15:26:58Z', 'user_id': '/users/4879665/liam', 'user_name': 'Liam', 'vote_count': '11', 'edit_time': '2015-05-26 10:39:28Z', 'edit_id': '/users/4879665/liam', 'edit_name': 'Liam'}
+{'user_time': '2017-08-24 06:15:31Z', 'user_id': '/users/6704115/anurag-misra', 'user_name': 'Anurag Misra', 'vote_count': '10', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-06-04 02:10:17Z', 'user_id': '/users/5181620/ankur-kothari', 'user_name': 'Ankur Kothari', 'vote_count': '10', 'edit_time': '2020-05-26 01:51:38Z', 'edit_id': '/users/2274035/so2', 'edit_name': 'so2'}
+{'user_time': '2018-08-15 17:52:50Z', 'user_id': '/users/4867193/drm', 'user_name': 'DrM', 'vote_count': '9', 'edit_time': '2019-05-22 15:10:43Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2018-06-10 03:59:43Z', 'user_id': '/users/5002508/rishu', 'user_name': 'RIshu', 'vote_count': '6', 'edit_time': '2019-05-22 15:02:28Z', 'edit_id': '/users/7851470/georgy', 'edit_name': 'Georgy'}
+{'user_time': '2018-02-07 14:04:10Z', 'user_id': '/users/8068733/ashok-kumar-jayaraman', 'user_name': 'Ashok Kumar Jayaraman', 'vote_count': '5', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-05-30 21:34:22Z', 'user_id': '/users/4139143/pyrsquared', 'user_name': 'PyRsquared', 'vote_count': '3', 'edit_time': '2018-05-31 06:09:09Z', 'edit_id': '/users/4139143/pyrsquared', 'edit_name': 'PyRsquared'}
+{'user_time': '2020-04-18 20:25:15Z', 'user_id': '/users/11183478/amar-kumar', 'user_name': 'Amar Kumar', 'vote_count': '3', 'edit_time': '2020-09-07 08:07:33Z', 'edit_id': '/users/1404076/kabirbaidhya', 'edit_name': 'kabirbaidhya'}
+{'user_time': '2018-04-24 10:53:56Z', 'user_id': '/users/9641084/lola', 'user_name': 'lola', 'vote_count': '1', 'edit_time': None, 'edit_id': None, 'edit_name': None}
+{'user_time': '2018-04-24 10:45:29Z', 'user_id': '/users/4970413/sumit-kumar', 'user_name': 'Sumit Kumar', 'vote_count': '0', 'edit_time': '2018-05-15 05:41:27Z', 'edit_id': '/users/7065821/challenger5', 'edit_name': 'Challenger5'}
+2020-12-10 15:56:12,270-INFO-FILE:scraper.py-FUNC:get_faq-LINE:147-Scraping finished 10 questions collected

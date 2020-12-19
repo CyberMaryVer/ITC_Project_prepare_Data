@@ -4,7 +4,9 @@ from db.connection import session
 from db.entities import *
 from datetime import datetime
 import logging
-import sys
+import os
+if not os.path.exists('logs'):
+    os.makedirs('logs')
 
 logger = logging.getLogger('logs/sql_manager.log')
 logger.setLevel(logging.DEBUG)
@@ -14,7 +16,7 @@ formatter = logging.Formatter('%(asctime)s-%(levelname)s-FILE:%(filename)s-FUNC:
 
 # create a file handler and add it to logger
 file_handler = logging.FileHandler('logs/sql_manager.log')
-file_handler.setLevel(logging.DEBUG)
+file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
