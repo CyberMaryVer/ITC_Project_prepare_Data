@@ -88,54 +88,53 @@ class StackExchangeScraper:
             question_summaries = soup.find_all('div', class_='question-summary')
 
             for question_summary in question_summaries:
-                try:
-                    question_url = question_summary.find('a', class_="question-hyperlink")['href']
-                    question_id = question_url.split('/')[self.ID_INDEX]
+                if questions_counter < limit:
+                    try:
+                        question_url = question_summary.find('a', class_="question-hyperlink")['href']
+                        question_id = question_url.split('/')[self.ID_INDEX]
 
-                    if verbose:
-                        print(f'{questions_counter + 1}. ', end="")
+                        if verbose:
+                            print(f'{questions_counter + 1}. ', end="")
 
-                    question_details = self.get_question_details(question_id, verbose=verbose)
+                        question_details = self.get_question_details(question_id, verbose=verbose)
 
-                    if parse_info_from_wiki:
-                        for tag in question_details.tags:
-                            try:
-                                question_detail = parse_wiki(tag=tag)
-                            except wikipedia.exceptions.DisambiguationError:
-                                logger.error(f'The tag does not exist in wikipedia')
-                            except Exception as e:
-                                logger.error(f'There is an error: {e}')
-                            else:
-                                question_details.tags_details.append(question_detail)
+                        if parse_info_from_wiki:
+                            for tag in question_details.tags:
+                                try:
+                                    question_detail = parse_wiki(tag=tag)
+                                except wikipedia.exceptions.DisambiguationError:
+                                    logger.error(f'The tag does not exist in wikipedia')
+                                except Exception as e:
+                                    logger.error(f'There is an error: {e}')
+                                else:
+                                    question_details.tags_details.append(question_detail)
 
-                    if save_to_db:
-                        entity_manager = EntityManager(source=self.domain)
-                        entity_manager.save(question_details)
+                        if save_to_db:
+                            entity_manager = EntityManager(source=self.domain)
+                            entity_manager.save(question_details)
 
-                    if save_to_csv:
-                        to_csv.append([question_details.title, question_details.asked, question_details.active,
-                                       question_details.viewed, question_details.vote_count,
-                                       question_details.bookmark_count, question_details.tags,
-                                       question_details.owner_id,
-                                       question_details.owner_name, question_details.edited_time,
-                                       question_details.edited_id, question_details.edited_name,
-                                       question_details.answer_count, question_details.answers])
+                        if save_to_csv:
+                            to_csv.append([question_details.title, question_details.asked, question_details.active,
+                                           question_details.viewed, question_details.vote_count,
+                                           question_details.bookmark_count, question_details.tags,
+                                           question_details.owner_id,
+                                           question_details.owner_name, question_details.edited_time,
+                                           question_details.edited_id, question_details.edited_name,
+                                           question_details.answer_count, question_details.answers])
 
-                    if verbose:
-                        print(question_details)
-                        print('-' * 100, end='\n\n')
+                        if verbose:
+                            print(question_details)
+                            print('-' * 100, end='\n\n')
 
-                except AssertionError as assertion_error:
-                    logger.error(f'Invalid status code: {assertion_error}')
-                    if verbose:
-                        print('Invalid status code')
-                        print(assertion_error)
-                        print('Moving to the next question')
-                    pass
-                else:
-                    questions_counter += 1
-                    if questions_counter == limit:
-                        break
+                    except AssertionError as assertion_error:
+                        logger.error(f'Invalid status code: {assertion_error}')
+                        if verbose:
+                            print('Invalid status code')
+                            print(assertion_error)
+                            print('Moving to the next question')
+                        pass
+                    else:
+                        questions_counter += 1
 
             start_page += 1
 

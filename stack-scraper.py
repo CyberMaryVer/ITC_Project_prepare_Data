@@ -13,6 +13,8 @@ def print_message():
     """ Print the message in Scraping... during a non-verbose run to give the user a visual key """
     global IS_RUNNING
 
+    print('(To stop the execution use CTRL + C)')
+
     point_counter = 1
     while IS_RUNNING:
         if point_counter < 4:
@@ -58,15 +60,20 @@ def main():
     if not args.verbose:
         _thread.start_new_thread(print_message, ())
 
-    scrapper.get_faq(tag=args.tag, start_page=1, limit=args.limit, verbose=args.verbose, _dir=directory,
-                     save_to_db=args.save,
-                     save_to_csv=args.file,
-                     parse_info_from_wiki=args.external)
+    try:
 
-    if not args.verbose:
-        global IS_RUNNING
-        IS_RUNNING = False
-        print(f'\rFinished check the {args.directory} directory')
+        scrapper.get_faq(tag=args.tag, start_page=1, limit=args.limit, verbose=args.verbose, _dir=directory,
+                         save_to_db=args.save,
+                         save_to_csv=args.file,
+                         parse_info_from_wiki=args.external)
+
+    except KeyboardInterrupt:
+        print('Program finish by the user')
+    else:
+        if not args.verbose:
+            global IS_RUNNING
+            IS_RUNNING = False
+            print(f'\rFinished check the {args.directory} directory')
 
 
 if __name__ == '__main__':
