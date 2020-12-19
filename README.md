@@ -1,4 +1,4 @@
-# Stack Exchange Scraper ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg) ![version](https://img.shields.io/badge/version-1.1.0-green)
+# Stack Exchange Scraper ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg) ![version](https://img.shields.io/badge/version-1.2.1-green)
 
 An easy and quick **python script** to extract data from question of the 
 [Stack Exchange](https://stackexchange.com/) network sites. Right now support question from 
@@ -148,6 +148,16 @@ Below you can find a description of the tables and their columns:
 - **question_tag**: Intermediate table to support the many-to-many relationship between tag and user
     - `question_id`: COMPOSITE PRIMARY KEY, FOREIGN KEY, INT, id of the question
     - `tag_id`: COMPOSITE PRIMARY KEY, FOREIGN KEY, INT, id of the tag
+
+## API
+To extend the information about the topics (tags) you can use the `--external` option to extract information about the **wikipedia** using their **API**.
+
+The external information recollected is:
+1. **Definition**: A short description about the topic extracted from the wikipedia page.
+2. **Page:** The unique ID of the wikipedia page
+3. **List of tags:** A list of topics related with the tags.
+
+If the `--save` option is enabled this information is stored inside the `tag_detail` table.
 
 ## Test it
 If you just want to test the execution of the program you can run the `test.py` script. 
