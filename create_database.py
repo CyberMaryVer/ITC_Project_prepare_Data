@@ -6,6 +6,7 @@ import config
 def main():
     """ Create the database """
     engine = create_engine(config.DATABASE_URL, echo=config.ECHO)
+    engine.execute(f'DROP DATABASE IF EXISTS {config.DATABASE_NAME}')
     engine.execute(f'CREATE DATABASE IF NOT EXISTS {config.DATABASE_NAME}')
     engine.execute('USE stack_exchange')
 

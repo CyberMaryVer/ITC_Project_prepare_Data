@@ -6,22 +6,18 @@ from datetime import datetime
 import logging
 import sys
 
-logger = logging.getLogger('sql_manager_log')
+logger = logging.getLogger('logs/sql_manager.log')
 logger.setLevel(logging.DEBUG)
 
 # Create Formatter
 formatter = logging.Formatter('%(asctime)s-%(levelname)s-FILE:%(filename)s-FUNC:%(funcName)s-LINE:%(lineno)d-%(message)s')
 
 # create a file handler and add it to logger
-file_handler = logging.FileHandler('sql_manager_log.log')
+file_handler = logging.FileHandler('logs/sql_manager.log')
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
-stream_handler = logging.StreamHandler(sys.stdout)
-stream_handler.setLevel(logging.INFO)
-stream_handler.setFormatter(formatter)
-logger.addHandler(stream_handler)
 
 def str_to_time(date, fmt='%Y-%m-%d %H:%M:%SZ', default=None):
     """ Convert a string to datetime.
@@ -77,7 +73,7 @@ class EntityManager:
         logger.info(f'Session opened. Class initiated: {self}, source: {source}')
         self.source = source
 
-    def save(self, shallow_question, tag_details=None):
+    def save(self, shallow_question):
         """ Save (create or update) a question in the database.
         Create records (Source, User, Tag, Answer) only if they do not already exist in the database.
 
@@ -131,13 +127,17 @@ class EntityManager:
             if tag is None:
                 tag = Tag()
                 tag.name = tag_name
-            question.tags.append(tag)
 
-        # tag_wiki = session.query(Tag_details).filter_by(name=tag_name).first()
-        # tag_wiki = Tag_details()
-        # tag_wiki.definition = tag_details[0]
-        # tag_wiki.page = tag_details[1]
-        # tag_wiki.list_of_tags = tag_details[2]
+                for shallow_tag_details in shallow_question.tags_details:
+                    if shallow_tag_details.name == tag.name:
+                        details = TagDetail()
+                        details.definition = shallow_tag_details.definition
+                        details.page = shallow_tag_details.page
+                        details.list_of_tags = shallow_tag_details.list_of_tags
+
+                        tag.details = details
+
+            question.tags.append(tag)
 
         question.edited_time = str_to_time(shallow_question.edited_time)
 

@@ -4,27 +4,22 @@ from db.manager import EntityManager
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
-import wikipedia # scrape wikipedia api
 from api_test import *
 import logging
 import sys
 
-logger = logging.getLogger('logfile')
+logger = logging.getLogger('logs/logfile')
 logger.setLevel(logging.DEBUG)
 
 # Create Formatter
-formatter = logging.Formatter('%(asctime)s-%(levelname)s-FILE:%(filename)s-FUNC:%(funcName)s-LINE:%(lineno)d-%(message)s')
+formatter = logging.Formatter(
+    '%(asctime)s-%(levelname)s-FILE:%(filename)s-FUNC:%(funcName)s-LINE:%(lineno)d-%(message)s')
 
 # create a file handler and add it to logger
-file_handler = logging.FileHandler('logfile.log')
+file_handler = logging.FileHandler('logs/logfile.log')
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
-
-stream_handler = logging.StreamHandler(sys.stdout)
-stream_handler.setLevel(logging.INFO)
-stream_handler.setFormatter(formatter)
-logger.addHandler(stream_handler)
 
 
 class StackExchangeScraper:
@@ -55,6 +50,7 @@ class StackExchangeScraper:
         :param str _dir: The directory path where the results will be saved
         :param bool save_to_db: Specify if the element should be saved in the database
         :param bool save_to_csv: Specify if the element should be saved in the database
+        :param bool parse_info_from_wiki: Specify if there will be a request to wikipedia API
         """
         questions_counter = 0
         attempts = 0
@@ -92,48 +88,53 @@ class StackExchangeScraper:
             question_summaries = soup.find_all('div', class_='question-summary')
 
             for question_summary in question_summaries:
-                try:
-                    question_url = question_summary.find('a', class_="question-hyperlink")['href']
-                    question_id = question_url.split('/')[self.ID_INDEX]
+                if questions_counter < limit:
+                    try:
+                        question_url = question_summary.find('a', class_="question-hyperlink")['href']
+                        question_id = question_url.split('/')[self.ID_INDEX]
 
-                    if verbose:
-                        print(f'{questions_counter + 1}. ', end="")
+                        if verbose:
+                            print(f'{questions_counter + 1}. ', end="")
 
-                    question_details = self.get_question_details(question_id, verbose=verbose)
+                        question_details = self.get_question_details(question_id, verbose=verbose)
 
-                    tag_details = None
-                    if parse_info_from_wiki:
-                        tag_details = parse_wiki(tag=tag)
+                        if parse_info_from_wiki:
+                            for tag in question_details.tags:
+                                try:
+                                    question_detail = parse_wiki(tag=tag)
+                                except wikipedia.exceptions.DisambiguationError:
+                                    logger.error(f'The tag does not exist in wikipedia')
+                                except Exception as e:
+                                    logger.error(f'There is an error: {e}')
+                                else:
+                                    question_details.tags_details.append(question_detail)
 
-                    if save_to_db:
-                        entity_manager = EntityManager(source=self.domain)
-                        entity_manager.save(question_details, tag_details)
+                        if save_to_db:
+                            entity_manager = EntityManager(source=self.domain)
+                            entity_manager.save(question_details)
 
-                    if save_to_csv:
-                        # Creating a list with all the data
-                        to_csv.append([question_details.title, question_details.asked, question_details.active,
-                                       question_details.viewed, question_details.vote_count,
-                                       question_details.bookmark_count, question_details.tags,
-                                       question_details.owner_id,
-                                       question_details.owner_name, question_details.edited_time,
-                                       question_details.edited_id, question_details.edited_name,
-                                       question_details.answer_count, question_details.answers])
+                        if save_to_csv:
+                            to_csv.append([question_details.title, question_details.asked, question_details.active,
+                                           question_details.viewed, question_details.vote_count,
+                                           question_details.bookmark_count, question_details.tags,
+                                           question_details.owner_id,
+                                           question_details.owner_name, question_details.edited_time,
+                                           question_details.edited_id, question_details.edited_name,
+                                           question_details.answer_count, question_details.answers])
 
-                    if verbose:
-                        print(question_details)
-                        print('-' * 100, end='\n\n')
+                        if verbose:
+                            print(question_details)
+                            print('-' * 100, end='\n\n')
 
-                except AssertionError as assertion_error:
-                    logger.error(f'Invalid status code: {assertion_error}')
-                    if verbose:
-                        print('Invalid status code')
-                        print(assertion_error)
-                        print('Moving to the next question')
-                    pass
-                else:
-                    questions_counter += 1
-                    if questions_counter == limit:
-                        break
+                    except AssertionError as assertion_error:
+                        logger.error(f'Invalid status code: {assertion_error}')
+                        if verbose:
+                            print('Invalid status code')
+                            print(assertion_error)
+                            print('Moving to the next question')
+                        pass
+                    else:
+                        questions_counter += 1
 
             start_page += 1
 
@@ -142,7 +143,6 @@ class StackExchangeScraper:
             print(f'Scraping finished {questions_counter} questions collected')
 
         if save_to_csv:
-            # saving in .csv
             df = pd.DataFrame(to_csv, columns=['question title', 'asked', 'active',
                                                'viewed', 'vote_count', 'bookmark_count', 'tags', 'owner_id',
                                                'owner_name', 'edited_time', 'edited_id', 'edited_name',
@@ -212,8 +212,6 @@ class StackExchangeScraper:
 
         return question
 
-
-
     def __question_url(self, question_id):
         """ Generate the url for a specific question
 
@@ -259,9 +257,7 @@ class StackExchangeScraper:
             post_properties['tags'] = [tag.text for tag in post_cell_container.find_all('a', class_='post-tag')]
 
             owner_container = post_cell_container.find('div', class_='owner')
-            if owner_container is not None and owner_container.find('div',
-                                                                    class_='user-details') is not None and owner_container.find(
-                    'div', class_='user-details').a is not None:
+            if owner_container is not None and owner_container.find('div', class_='user-details') is not None and owner_container.find('div', class_='user-details').a is not None:
                 post_properties['owner_name'] = owner_container.find('div', class_='user-details').a.text
                 post_properties['owner_id'] = owner_container.find('div', class_='user-details').a['href']
             else:

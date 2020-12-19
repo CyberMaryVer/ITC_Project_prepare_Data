@@ -1,4 +1,4 @@
-# Stack Exchange Scraper ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg) ![version](https://img.shields.io/badge/version-1.1.0-green)
+# Stack Exchange Scraper ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg) ![version](https://img.shields.io/badge/version-1.2.1-green)
 
 An easy and quick **python script** to extract data from question of the 
 [Stack Exchange](https://stackexchange.com/) network sites. Right now support question from 
@@ -50,6 +50,7 @@ python stack-scraper.py -w MATH -t calculus
 python stack-scraper.py -w UBUNTU -t cloud -d ~/temp -f
 python stack-scraper.py -t sql -d ./temp -f -l 5000 -v
 python stack-scraper.py -w SO -t sql -l 5000 -s
+python stack-scraper.py -w SO -t python -l 5 -s -e -v
 ```
 
 ## Options
@@ -60,7 +61,7 @@ You can always go back to them using the `--help` flag.
 ```bash
 python stack-scraper.py --help
 
-usage: stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-f] [-s] [-v]
+usage: stack-scraper.py [-h] [-t TAG] [-w {SO,MATH,UBUNTU}] [-d DIRECTORY] [-b BEGIN] [-l LIMIT] [-f] [-s] [-e] [-v]
 
 Performs a scraping on a web page of the Stack Exchange network saving the information of the questions in a csv file
 
@@ -77,6 +78,7 @@ optional arguments:
                         the maximum number of questions to retrieve
   -f, --file            save the data in a CSV file
   -s, --save            save the data in the database (the database must exist before)
+  -e, --external        check for external information about the tags in wikipedia
   -v, --verbose         determines if the program execution is displayed by CLI
 ```
 
@@ -94,12 +96,13 @@ Here are the options in more detail:
 - `-v --verbose` if the program execution is displayed by CLI
 - `-f --file` save the data in a CSV file
 - `-s --save` save the data in the database (the database must exist before)
+- `-e --external` check for external information about the tags in wikipedia.
 
 
 ## Database
 The following is the ERD diagram of the database.
 
-![Alt Text](img/erd-diagram.gif)
+![Alt Text](img/erd-diagram-v2.gif)
 
 Below you can find a description of the tables and their columns:
 - **source**: The source is the stackExchange domain that Question and User belongs
@@ -114,6 +117,12 @@ Below you can find a description of the tables and their columns:
 - **tag**: A tag for a question
     - `id`: PRIMARY KEY, INT auto incremental
     - `name`: VARCHAR, name of the tag
+- **tag_detail**: Details about a tag
+    - `id`: PRIMARY KEY, INT auto incremental
+    - `definition`: VARCHAR, A short description about the tag
+    - `page`: VARCHAR: A long description about the tag
+    - `list_of_tags`: VARCHAR related tag names (not in the database)
+    - `tag_id`: INT, id of the tag
 - **question**: A question from stackExchange domain
     - `id`: INT, auto incremental
     - `source_id`: FOREIGN KEY, INT, id of the source (stackExchange domain)
@@ -139,6 +148,16 @@ Below you can find a description of the tables and their columns:
 - **question_tag**: Intermediate table to support the many-to-many relationship between tag and user
     - `question_id`: COMPOSITE PRIMARY KEY, FOREIGN KEY, INT, id of the question
     - `tag_id`: COMPOSITE PRIMARY KEY, FOREIGN KEY, INT, id of the tag
+
+## API
+To extend the information about the topics (tags) you can use the `--external` option to extract information about the **wikipedia** using their **API**.
+
+The external information recollected is:
+1. **Definition**: A short description about the topic extracted from the wikipedia page.
+2. **Page:** The unique ID of the wikipedia page
+3. **List of tags:** A list of topics related with the tags.
+
+If the `--save` option is enabled this information is stored inside the `tag_detail` table.
 
 ## Test it
 If you just want to test the execution of the program you can run the `test.py` script. 
