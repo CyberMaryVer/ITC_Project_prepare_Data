@@ -60,7 +60,7 @@ def extract_username(route):
     :rtype: str or None
     """
     try:
-        return route.split('/')[-1]
+        return route.split('/')[-1].encode('utf-8', errors='strict')
     except (AttributeError, IndexError):
         logger.error(f'AttributeError, IndexError')
         return None
